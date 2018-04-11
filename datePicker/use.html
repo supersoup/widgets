@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="datePicker.css">
+</head>
+<body>
+<div class="date-wrap">
+    <div class="date-header">
+        <a class="date-header-previous" href="javascript:void(0);">上月</a>
+        <a class="date-header-next" href="javascript:void(0);">下月</a>
+        <div class="date-header-select">
+            <select class="date-header-years">
+                <option value="2015">2015</option>
+            </select>
+            年
+            <select class="date-header-months">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+            月
+        </div>
+    </div>
+
+    <div class="date-body">
+        <table class="date-body-table">
+            <tr class="date-week-row">
+                <th>日</th>
+                <th>一</th>
+                <th>二</th>
+                <th>三</th>
+                <th>四</th>
+                <th>五</th>
+                <th>六</th>
+            </tr>
+
+            <tr class="date-date-row">
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<script src="../bower_components/requirejs/require.js"></script>
+<script>
+    require.config({
+        paths: {
+            jquery: '../bower_components/jquery/dist/jquery',
+            ejs: '../bower_components/ejs/ejs',
+            text: '../bower_components/text/text'
+        }
+    });
+
+    require([
+        'jquery',
+        'datePicker'
+    ], function ($) {
+        $(function () {
+
+        });
+    })
+</script>
+
+
+</body>
+</html>

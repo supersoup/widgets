@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="fixedHeadTable.css">
+    <style>
+        .wrap {
+            margin: 20px auto;
+            width: 500px;
+            height: 500px;
+            border: 1px solid blue;
+        }
+
+        th,
+        td {
+            width: 150px;
+            height: 50px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="fixed-table-wrap" id="fixedTableWrap">
+        <div class="fixed-table-content">
+            <table class="fixed-table-header">
+                <tr>
+                    <th>表格</th>
+                </tr>
+            </table>
+            <table class="fixed-table-x-header">
+                <tr>
+                    <th>header-x-1</th>
+                    <th>header-x-2</th>
+                    <th>header-x-3</th>
+                    <th>header-x-4</th>
+                    <th>header-x-5</th>
+                    <th>header-x-6</th>
+                    <th>header-x-7</th>
+                </tr>
+            </table>
+            <table class="fixed-table-y-header">
+                <tr><th>item-a</th></tr>
+                <tr><th>item-b</th></tr>
+                <tr><th>item-c</th></tr>
+                <tr><th>item-d</th></tr>
+                <tr><th>item-e</th></tr>
+                <tr><th>item-f</th></tr>
+                <tr><th>item-g</th></tr>
+                <tr><th>item-h</th></tr>
+                <tr><th>item-i</th></tr>
+                <tr><th>item-j</th></tr>
+                <tr><th>item-k</th></tr>
+                <tr><th>item-l</th></tr>
+                <tr><th>item-m</th></tr>
+                <tr><th>item-n</th></tr>
+            </table>
+            <table class="fixed-table-body">
+                <tr><th>item-a-1</th><th>item-a-2</th><th>item-a-3</th><th>item-a-4</th><th>item-a-5</th><th>item-a-6</th><th>item-a-7</th></tr>
+                <tr><th>item-b-1</th><th>item-b-2</th><th>item-b-3</th><th>item-b-4</th><th>item-b-5</th><th>item-b-6</th><th>item-b-7</th></tr>
+                <tr><th>item-c-1</th><th>item-c-2</th><th>item-c-3</th><th>item-c-4</th><th>item-c-5</th><th>item-c-6</th><th>item-c-7</th></tr>
+                <tr><th>item-d-1</th><th>item-d-2</th><th>item-d-3</th><th>item-d-4</th><th>item-d-5</th><th>item-d-6</th><th>item-d-7</th></tr>
+                <tr><th>item-e-1</th><th>item-e-2</th><th>item-e-3</th><th>item-e-4</th><th>item-e-5</th><th>item-e-6</th><th>item-e-7</th></tr>
+                <tr><th>item-f-1</th><th>item-f-2</th><th>item-f-3</th><th>item-f-4</th><th>item-f-5</th><th>item-f-6</th><th>item-f-7</th></tr>
+                <tr><th>item-g-1</th><th>item-g-2</th><th>item-g-3</th><th>item-g-4</th><th>item-g-5</th><th>item-g-6</th><th>item-g-7</th></tr>
+                <tr><th>item-h-1</th><th>item-h-2</th><th>item-h-3</th><th>item-h-4</th><th>item-h-5</th><th>item-h-6</th><th>item-h-7</th></tr>
+                <tr><th>item-i-1</th><th>item-i-2</th><th>item-i-3</th><th>item-i-4</th><th>item-i-5</th><th>item-i-6</th><th>item-i-7</th></tr>
+                <tr><th>item-j-1</th><th>item-j-2</th><th>item-j-3</th><th>item-j-4</th><th>item-j-5</th><th>item-j-6</th><th>item-j-7</th></tr>
+                <tr><th>item-k-1</th><th>item-k-2</th><th>item-k-3</th><th>item-k-4</th><th>item-k-5</th><th>item-k-6</th><th>item-k-7</th></tr>
+                <tr><th>item-l-1</th><th>item-l-2</th><th>item-l-3</th><th>item-l-4</th><th>item-l-5</th><th>item-l-6</th><th>item-l-7</th></tr>
+                <tr><th>item-m-1</th><th>item-m-2</th><th>item-m-3</th><th>item-m-4</th><th>item-m-5</th><th>item-m-6</th><th>item-m-7</th></tr>
+                <tr><th>item-n-1</th><th>item-n-2</th><th>item-n-3</th><th>item-n-4</th><th>item-n-5</th><th>item-n-6</th><th>item-n-7</th></tr>
+            </table>
+        </div>
+        <div class="fixed-x-scroll-bar">
+            <div class="fixed-x-scroll-slider"></div>
+        </div>
+        <div class="fixed-y-scroll-bar">
+            <div class="fixed-y-scroll-slider"></div>
+        </div>
+    </div>
+</div>
+
+<div class="wrap">
+    <div class="fixed-table-wrap" id="fixedTableWrap2">
+        <div class="fixed-table-content">
+            <table class="fixed-table-header">
+                <tr>
+                    <th>表格</th>
+                </tr>
+            </table>
+            <table class="fixed-table-x-header">
+                <tr>
+                    <th>header-x-1</th>
+                    <th>header-x-2</th>
+                    <th>header-x-3</th>
+                    <th>header-x-4</th>
+                    <th>header-x-5</th>
+                    <th>header-x-6</th>
+                    <th>header-x-7</th>
+                    <th>header-x-8</th>
+                    <th>header-x-9</th>
+                </tr>
+            </table>
+            <table class="fixed-table-y-header">
+                <tr><th>item-a</th></tr>
+                <tr><th>item-b</th></tr>
+                <tr><th>item-c</th></tr>
+                <tr><th>item-d</th></tr>
+                <tr><th>item-e</th></tr>
+                <tr><th>item-f</th></tr>
+                <tr><th>item-g</th></tr>
+                <tr><th>item-h</th></tr>
+                <tr><th>item-i</th></tr>
+                <tr><th>item-j</th></tr>
+                <tr><th>item-k</th></tr>
+                <tr><th>item-l</th></tr>
+                <tr><th>item-m</th></tr>
+                <tr><th>item-n</th></tr>
+                <tr><th>item-o</th></tr>
+                <tr><th>item-p</th></tr>
+                <tr><th>item-q</th></tr>
+            </table>
+            <table class="fixed-table-body">
+                <tr><th>item-a-1</th><th>item-a-2</th><th>item-a-3</th><th>item-a-4</th><th>item-a-5</th><th>item-a-6</th><th>item-a-7</th><th>item-a-8</th><th>item-a-9</th></tr>
+                <tr><th>item-b-1</th><th>item-b-2</th><th>item-b-3</th><th>item-b-4</th><th>item-b-5</th><th>item-b-6</th><th>item-b-7</th><th>item-b-8</th><th>item-b-9</th></tr>
+                <tr><th>item-c-1</th><th>item-c-2</th><th>item-c-3</th><th>item-c-4</th><th>item-c-5</th><th>item-c-6</th><th>item-c-7</th><th>item-c-8</th><th>item-c-9</th></tr>
+                <tr><th>item-d-1</th><th>item-d-2</th><th>item-d-3</th><th>item-d-4</th><th>item-d-5</th><th>item-d-6</th><th>item-d-7</th><th>item-d-8</th><th>item-d-9</th></tr>
+                <tr><th>item-e-1</th><th>item-e-2</th><th>item-e-3</th><th>item-e-4</th><th>item-e-5</th><th>item-e-6</th><th>item-e-7</th><th>item-e-8</th><th>item-e-9</th></tr>
+                <tr><th>item-f-1</th><th>item-f-2</th><th>item-f-3</th><th>item-f-4</th><th>item-f-5</th><th>item-f-6</th><th>item-f-7</th><th>item-f-8</th><th>item-f-9</th></tr>
+                <tr><th>item-g-1</th><th>item-g-2</th><th>item-g-3</th><th>item-g-4</th><th>item-g-5</th><th>item-g-6</th><th>item-g-7</th><th>item-g-8</th><th>item-g-9</th></tr>
+                <tr><th>item-h-1</th><th>item-h-2</th><th>item-h-3</th><th>item-h-4</th><th>item-h-5</th><th>item-h-6</th><th>item-h-7</th><th>item-h-8</th><th>item-h-9</th></tr>
+                <tr><th>item-i-1</th><th>item-i-2</th><th>item-i-3</th><th>item-i-4</th><th>item-i-5</th><th>item-i-6</th><th>item-i-7</th><th>item-i-8</th><th>item-i-9</th></tr>
+                <tr><th>item-j-1</th><th>item-j-2</th><th>item-j-3</th><th>item-j-4</th><th>item-j-5</th><th>item-j-6</th><th>item-j-7</th><th>item-j-8</th><th>item-j-9</th></tr>
+                <tr><th>item-k-1</th><th>item-k-2</th><th>item-k-3</th><th>item-k-4</th><th>item-k-5</th><th>item-k-6</th><th>item-k-7</th><th>item-k-8</th><th>item-k-9</th></tr>
+                <tr><th>item-l-1</th><th>item-l-2</th><th>item-l-3</th><th>item-l-4</th><th>item-l-5</th><th>item-l-6</th><th>item-l-7</th><th>item-l-8</th><th>item-l-9</th></tr>
+                <tr><th>item-m-1</th><th>item-m-2</th><th>item-m-3</th><th>item-m-4</th><th>item-m-5</th><th>item-m-6</th><th>item-m-7</th><th>item-m-8</th><th>item-m-9</th></tr>
+                <tr><th>item-n-1</th><th>item-n-2</th><th>item-n-3</th><th>item-n-4</th><th>item-n-5</th><th>item-n-6</th><th>item-n-7</th><th>item-n-8</th><th>item-n-9</th></tr>
+                <tr><th>item-o-1</th><th>item-o-2</th><th>item-o-3</th><th>item-o-4</th><th>item-o-5</th><th>item-o-6</th><th>item-o-7</th><th>item-o-8</th><th>item-o-9</th></tr>
+                <tr><th>item-p-1</th><th>item-p-2</th><th>item-p-3</th><th>item-p-4</th><th>item-p-5</th><th>item-p-6</th><th>item-p-7</th><th>item-p-8</th><th>item-p-9</th></tr>
+                <tr><th>item-q-1</th><th>item-q-2</th><th>item-q-3</th><th>item-q-4</th><th>item-q-5</th><th>item-q-6</th><th>item-q-7</th><th>item-q-8</th><th>item-q-9</th></tr>
+            </table>
+        </div>
+        <div class="fixed-x-scroll-bar">
+            <div class="fixed-x-scroll-slider"></div>
+        </div>
+        <div class="fixed-y-scroll-bar">
+            <div class="fixed-y-scroll-slider"></div>
+        </div>
+    </div>
+</div>
+
+<script src="../bower_components/requirejs/require.js"></script>
+<script>
+    require.config({
+        paths: {
+            jquery: '../bower_components/jquery/dist/jquery',
+            ejs: '../bower_components/ejs/ejs',
+            text: '../bower_components/text/text'
+        }
+    });
+
+    require([
+        'jquery',
+        'fixedHeadTable'
+    ], function ($, FixedHeadTable) {
+
+        $(function () {
+            new FixedHeadTable({wrapId: 'fixedTableWrap'});
+            new FixedHeadTable({wrapId: 'fixedTableWrap2'});
+        });
+    })
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+.fixed-table-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.fixed-table-wrap table {
+    display: inline-table;
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 1px; /*必须设置宽度*/
+    background: white;
+}
+
+.fixed-table-wrap th,td {
+    border: 1px solid grey;
+    padding: 0;
+}
+
+.fixed-table-header,
+.fixed-table-x-header,
+.fixed-table-y-header,
+.fixed-table-body {
+    position: absolute;
+}
+
+.fixed-table-header {
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+.fixed-table-x-header {
+    top: 0;
+    left: 150px;
+    z-index: 2;
+}
+
+.fixed-table-y-header {
+    top: 50px;
+    left: 0;
+    z-index: 2;
+}
+
+.fixed-table-body {
+    top: 50px;
+    left: 150px;
+    z-index: 1;
+}
+
+.fixed-y-scroll-bar {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    bottom: 14px;
+    right: 0;
+    width: 14px;
+    background: #eee;
+}
+
+.fixed-x-scroll-bar {
+    position: absolute;
+    z-index: 10;
+    bottom: 0;
+    width: 100%;
+    height: 14px;
+    background: #eee;
+}
+
+.fixed-y-scroll-slider {
+    position: absolute;
+    top: 0;
+    width: 14px;
+    height: 40px;
+    background: #aaa;
+    opacity: .6;
+}
+
+.fixed-x-scroll-slider {
+    position: absolute;
+    left: 0;
+    width: 40px;
+    height: 14px;
+    background: #aaa;
+    opacity: .6;
+}

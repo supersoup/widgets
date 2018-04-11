@@ -1,0 +1,34 @@
+.date-wrap {
+    width: 220px;
+    position: absolute;
+}
+
+.date-header {
+    overflow: hidden;
+    background: lightblue;
+}
+
+.date-header-previous {
+    float: left;
+}
+
+.date-header-next {
+    float: right;
+}
+
+.date-body-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid grey;
+    height: 26px;
+    line-height: 26px;
+    vertical-align: middle;
+}
+
+td {
+    cursor: pointer;
+}
