@@ -18,6 +18,8 @@ define([
 		this.$thead = this.$wrap.find('.fixed-table-header');
 		this.$theadX = this.$wrap.find('.fixed-table-x-header');
 		this.$theadY = this.$wrap.find('.fixed-table-y-header');
+		this.$tfoot = this.$wrap.find('.fixed-table-footer');
+		this.$tfootY = this.$wrap.find('.fixed-table-y-footer');
 		this.$tbody = this.$wrap.find('.fixed-table-body');
 		this.$scrollBarX = this.$wrap.find('.fixed-x-scroll-bar');
 		this.$scrollBarY = this.$wrap.find('.fixed-y-scroll-bar');
@@ -40,29 +42,42 @@ define([
 		},
 
 		refresh: function () {
+			//各块宽度
 			this.wrapWidth = this.$wrap.width();
 			this.wrapHeight = this.$wrap.height();
 			this.theadWidth = this.$thead.width();
 			this.theadHeight = this.$thead.height();
-			this.tbodyWidth = this.$tbody.width() + 14;
-			this.tbodyHeight = this.$tbody.height() + 14;
+			this.tfootWidth = this.$tfoot.size() > 0 ? this.$tfoot.width() : 0;
 			this.scrollBarXWidth = this.$scrollBarX.width();
 			this.scrollBarYHeight = this.$scrollBarY.height();
+			this.scrollBarXThick = this.$scrollBarX.height();
+			this.scrollBarYThick = this.$scrollBarY.width();
 
-			this.scaleX = (this.wrapWidth - this.theadWidth) / this.tbodyWidth;
-			this.scaleY = (this.wrapHeight - this.theadHeight) / this.tbodyHeight;
+			//要让表格滚动的内容体，能够滚到底部，必须加上被遮盖的部分
+			this.tbodyWidth = this.$tbody.width() + this.tfootWidth + this.scrollBarYThick;
+			this.tbodyHeight = this.$tbody.height() + this.scrollBarXThick;
 
-			this.scrollScaleX = this.scrollBarXWidth / (this.tbodyWidth);
-			this.scrollScaleY = this.scrollBarYHeight / (this.tbodyHeight);
+			//滚动比例
+			this.scrollScaleX = this.scrollBarXWidth / this.tbodyWidth;
+			this.scrollScaleY = this.scrollBarYHeight / this.tbodyHeight;
 
-			this.sliderXWidth = parseInt( this.scrollBarXWidth * this.scaleX );
-			this.sliderYHeight = parseInt( this.scrollBarYHeight * this.scaleY );
-
-			this.tbodyLeftBeforeInit = parseInt( this.$tbody.css('left') );
-			this.tbodyTopBeforeInit = parseInt( this.$tbody.css('top') );
-
+			//设置slider
+			this.sliderXWidth = parseInt( this.scrollBarXWidth * (this.wrapWidth - this.theadWidth) / this.tbodyWidth );
+			this.sliderYHeight = parseInt( this.scrollBarYHeight * (this.wrapHeight - this.theadHeight) / this.tbodyHeight );
 			this.$sliderX.width(this.sliderXWidth);
 			this.$sliderY.height(this.sliderYHeight);
+
+			//设置各个区块的位置
+			var footLeft = this.wrapWidth - this.tfootWidth - this.scrollBarXThick;
+			this.$theadX.css('left', this.theadWidth);
+			this.$theadY.css('top', this.theadHeight);
+			this.$tfoot.css('left', footLeft);
+			this.$tfootY.css('left', footLeft)
+				.css('top', this.theadHeight);
+			this.$tbody.css('left', this.theadWidth)
+				.css('top', this.theadHeight);
+			this.$sliderX.css('left', 0);
+			this.$sliderY.css('top', 0);
 		},
 
 		_initSliderX: function () {
@@ -71,7 +86,6 @@ define([
 			var $tbody = this.$tbody;
 			var $doc = this.$doc;
 
-			$slider.css('left', 0);
 			$slider.on('mousedown', function (event) {
 				var pageXBefore = event.pageX;
 				var leftBefore = parseInt( $slider.css('left') );
@@ -98,7 +112,6 @@ define([
 			var $tbody = this.$tbody;
 			var $doc = this.$doc;
 
-			$slider.css('top', 0);
 			$slider.on('mousedown', function (event) {
 				var pageYBefore = event.pageY;
 				var topBefore = parseInt( $slider.css('top') );
@@ -119,48 +132,74 @@ define([
 			})
 		},
 
+		/**
+		 * @param options.leftBefore
+		 * @param options.tbodyLeftBefore
+		 * @param options.move
+		 */
 		_computeX: function (options) {
 			var leftBefore = options.leftBefore;
 			var tbodyLeftBefore = options.tbodyLeftBefore;
 			var move = options.move;
-
+			var maxMove = this.scrollBarXWidth - this.sliderXWidth;
 			var left;
 			var leftChange;
 			var tbodyLeft;
 
 			if (move > 0) {
-				left = Math.min(leftBefore + move, this.scrollBarXWidth - this.sliderXWidth);
+				left = Math.min(leftBefore + move, maxMove);
 			} else {
 				left = Math.max(leftBefore + move, 0);
 			}
 
 			leftChange = left - leftBefore;
-			tbodyLeft = left === 0 ? this.tbodyLeftBeforeInit : tbodyLeftBefore - (leftChange / this.scrollScaleX);
+
+			if (left === 0) {
+				tbodyLeft = this.theadWidth;
+			} else if (left === maxMove) {
+				tbodyLeft = this.wrapWidth - this.tbodyWidth;
+			} else {
+				tbodyLeft = tbodyLeftBefore - (leftChange / this.scrollScaleX);
+			}
 
 			this.$sliderX.css('left', left + 'px');
 			this.$theadX.css('left', tbodyLeft + 'px');
 			this.$tbody.css('left', tbodyLeft + 'px');
 		},
 
+		/**
+		 * @param options.topBefore
+		 * @param options.tbodyTopBefore
+		 * @param options.move
+		 */
 		_computeY: function (options) {
 			var topBefore = options.topBefore;
 			var tbodyTopBefore = options.tbodyTopBefore;
 			var move = options.move;
+			var maxMove = this.scrollBarYHeight - this.sliderYHeight;
 			var top;
 			var topChange;
 			var tbodyTop;
 
 			if (move > 0) {
-				top = Math.min(topBefore + move, this.scrollBarYHeight - this.sliderYHeight);
+				top = Math.min(topBefore + move, maxMove);
 			} else {
 				top = Math.max(topBefore + move, 0);
 			}
 
 			topChange = top - topBefore;
-			tbodyTop = top === 0 ? this.tbodyTopBeforeInit : tbodyTopBefore - (topChange / this.scrollScaleY);
+
+			if (top === 0) {
+				tbodyTop = this.theadHeight;
+			} else if (top === maxMove) {
+				tbodyTop = this.wrapHeight - this.tbodyHeight;
+			} else {
+				tbodyTop = tbodyTopBefore - (topChange / this.scrollScaleY);
+			}
 
 			this.$sliderY.css('top', top + 'px');
 			this.$theadY.css('top', tbodyTop + 'px');
+			this.$tfootY.css('top', tbodyTop + 'px');
 			this.$tbody.css('top', tbodyTop + 'px');
 		},
 

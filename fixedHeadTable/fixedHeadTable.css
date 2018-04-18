@@ -1,11 +1,11 @@
-.fixed-table-wrap {
+.fixed-table {
     position: relative;
     width: 100%;
     height: 100%;
     overflow: hidden;
 }
 
-.fixed-table-wrap table {
+.fixed-table table {
     display: inline-table;
     table-layout: fixed;
     border-collapse: collapse;
@@ -13,14 +13,11 @@
     background: white;
 }
 
-.fixed-table-wrap th,td {
-    border: 1px solid grey;
-    padding: 0;
-}
-
 .fixed-table-header,
 .fixed-table-x-header,
 .fixed-table-y-header,
+.fixed-table-footer,
+.fixed-table-y-footer,
 .fixed-table-body {
     position: absolute;
 }
@@ -28,6 +25,13 @@
 .fixed-table-header {
     top: 0;
     left: 0;
+    z-index: 3;
+}
+
+
+.fixed-table-footer {
+    top: 0;
+    right: 0;
     z-index: 3;
 }
 
@@ -43,6 +47,12 @@
     z-index: 2;
 }
 
+.fixed-table-y-footer {
+    top: 50px;
+    right: 0;
+    z-index: 2;
+}
+
 .fixed-table-body {
     top: 50px;
     left: 150px;
@@ -51,7 +61,7 @@
 
 .fixed-y-scroll-bar {
     position: absolute;
-    z-index: 10;
+    z-index: 4;
     top: 0;
     bottom: 14px;
     right: 0;
@@ -61,7 +71,7 @@
 
 .fixed-x-scroll-bar {
     position: absolute;
-    z-index: 10;
+    z-index: 4;
     bottom: 0;
     width: 100%;
     height: 14px;
@@ -71,7 +81,7 @@
 .fixed-y-scroll-slider {
     position: absolute;
     top: 0;
-    width: 14px;
+    width: 100%;
     height: 40px;
     background: #aaa;
     opacity: .6;
@@ -81,7 +91,7 @@
     position: absolute;
     left: 0;
     width: 40px;
-    height: 14px;
+    height: 100%;
     background: #aaa;
     opacity: .6;
 }

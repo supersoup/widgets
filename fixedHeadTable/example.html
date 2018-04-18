@@ -5,37 +5,75 @@
     <title>Title</title>
     <link rel="stylesheet" href="fixedHeadTable.css">
     <style>
+        h2,
+        p {
+            text-align: center;
+        }
+
         .wrap {
             margin: 20px auto;
-            width: 500px;
-            height: 500px;
-            border: 1px solid blue;
+            width: 700px;
+            height: 350px;
+            /*border: 1px solid blue;*/
         }
 
         th,
         td {
-            width: 150px;
+            width: 140px;
             height: 50px;
             text-align: center;
             vertical-align: middle;
         }
 
+        .fixed-table-header tr,
+        .fixed-table-x-header tr,
+        .fixed-table-footer tr {
+            background: #97a8bb;
+        }
+
+        .fixed-table-y-header tr:nth-child(even),
+        .fixed-table-body tr:nth-child(even),
+        .fixed-table-y-footer tr:nth-child(even) {
+            background: #d1e1ee;
+        }
+
+        .fixed-y-scroll-bar {
+            width: 10px;
+            bottom: 10px;
+        }
+
+        .fixed-x-scroll-bar {
+            height: 10px;
+        }
+
+        .fixed-table-header,
+        .fixed-table-y-header {
+            border-right: 1px solid #ccc;
+        }
+
+        .fixed-table-footer,
+        .fixed-table-y-footer {
+            border-left: 1px solid #ccc;
+        }
 
     </style>
 </head>
 <body>
+
+<h2>无表尾的情况</h2>
 <div class="wrap">
-    <div class="fixed-table-wrap" id="fixedTableWrap">
+    <div class="fixed-table" id="fixedTableWrap">
         <div class="fixed-table-content">
             <table class="fixed-table-header">
                 <tr>
-                    <th>表格</th>
+                    <th>列1</th>
                 </tr>
             </table>
             <table class="fixed-table-x-header">
                 <tr>
                     <th>header-x-1</th>
-                    <th>header-x-2</th>
+                    <!--设置列宽，需要在 x-header 和 body 的该列第一个 td/th 上设置-->
+                    <th style="width: 50px;">header-x-2</th>
                     <th>header-x-3</th>
                     <th>header-x-4</th>
                     <th>header-x-5</th>
@@ -60,7 +98,8 @@
                 <tr><th>item-n</th></tr>
             </table>
             <table class="fixed-table-body">
-                <tr><th>item-a-1</th><th>item-a-2</th><th>item-a-3</th><th>item-a-4</th><th>item-a-5</th><th>item-a-6</th><th>item-a-7</th></tr>
+                <!--设置列宽，需要在 x-header 和 body 的该列第一个 td/th 上设置-->
+                <tr><th>item-a-1</th><th style="width: 50px;">item-a-2</th><th>item-a-3</th><th>item-a-4</th><th>item-a-5</th><th>item-a-6</th><th>item-a-7</th></tr>
                 <tr><th>item-b-1</th><th>item-b-2</th><th>item-b-3</th><th>item-b-4</th><th>item-b-5</th><th>item-b-6</th><th>item-b-7</th></tr>
                 <tr><th>item-c-1</th><th>item-c-2</th><th>item-c-3</th><th>item-c-4</th><th>item-c-5</th><th>item-c-6</th><th>item-c-7</th></tr>
                 <tr><th>item-d-1</th><th>item-d-2</th><th>item-d-3</th><th>item-d-4</th><th>item-d-5</th><th>item-d-6</th><th>item-d-7</th></tr>
@@ -85,12 +124,14 @@
     </div>
 </div>
 
+<h2>有表尾的情况</h2>
 <div class="wrap">
-    <div class="fixed-table-wrap" id="fixedTableWrap2">
+    <div class="fixed-table" id="fixedTableWrap2">
         <div class="fixed-table-content">
             <table class="fixed-table-header">
                 <tr>
-                    <th>表格</th>
+                    <th>列1</th>
+                    <th style="width: 50px;">列2</th>
                 </tr>
             </table>
             <table class="fixed-table-x-header">
@@ -107,23 +148,23 @@
                 </tr>
             </table>
             <table class="fixed-table-y-header">
-                <tr><th>item-a</th></tr>
-                <tr><th>item-b</th></tr>
-                <tr><th>item-c</th></tr>
-                <tr><th>item-d</th></tr>
-                <tr><th>item-e</th></tr>
-                <tr><th>item-f</th></tr>
-                <tr><th>item-g</th></tr>
-                <tr><th>item-h</th></tr>
-                <tr><th>item-i</th></tr>
-                <tr><th>item-j</th></tr>
-                <tr><th>item-k</th></tr>
-                <tr><th>item-l</th></tr>
-                <tr><th>item-m</th></tr>
-                <tr><th>item-n</th></tr>
-                <tr><th>item-o</th></tr>
-                <tr><th>item-p</th></tr>
-                <tr><th>item-q</th></tr>
+                <tr><th>item-a</th><th style="width: 50px;">item-a-0</th></tr>
+                <tr><th>item-b</th><th>item-b-0</th></tr>
+                <tr><th>item-c</th><th>item-c-0</th></tr>
+                <tr><th>item-d</th><th>item-d-0</th></tr>
+                <tr><th>item-e</th><th>item-e-0</th></tr>
+                <tr><th>item-f</th><th>item-f-0</th></tr>
+                <tr><th>item-g</th><th>item-g-0</th></tr>
+                <tr><th>item-h</th><th>item-h-0</th></tr>
+                <tr><th>item-i</th><th>item-i-0</th></tr>
+                <tr><th>item-j</th><th>item-j-0</th></tr>
+                <tr><th>item-k</th><th>item-k-0</th></tr>
+                <tr><th>item-l</th><th>item-l-0</th></tr>
+                <tr><th>item-m</th><th>item-m-0</th></tr>
+                <tr><th>item-n</th><th>item-n-0</th></tr>
+                <tr><th>item-o</th><th>item-o-0</th></tr>
+                <tr><th>item-p</th><th>item-p-0</th></tr>
+                <tr><th>item-q</th><th>item-q-0</th></tr>
             </table>
             <table class="fixed-table-body">
                 <tr><th>item-a-1</th><th>item-a-2</th><th>item-a-3</th><th>item-a-4</th><th>item-a-5</th><th>item-a-6</th><th>item-a-7</th><th>item-a-8</th><th>item-a-9</th></tr>
@@ -144,6 +185,30 @@
                 <tr><th>item-p-1</th><th>item-p-2</th><th>item-p-3</th><th>item-p-4</th><th>item-p-5</th><th>item-p-6</th><th>item-p-7</th><th>item-p-8</th><th>item-p-9</th></tr>
                 <tr><th>item-q-1</th><th>item-q-2</th><th>item-q-3</th><th>item-q-4</th><th>item-q-5</th><th>item-q-6</th><th>item-q-7</th><th>item-q-8</th><th>item-q-9</th></tr>
             </table>
+            <table class="fixed-table-footer">
+                <tr>
+                    <th>尾列</th>
+                </tr>
+            </table>
+            <table class="fixed-table-y-footer">
+                <tr><th>item-a-footer</th></tr>
+                <tr><th>item-b-footer</th></tr>
+                <tr><th>item-c-footer</th></tr>
+                <tr><th>item-d-footer</th></tr>
+                <tr><th>item-e-footer</th></tr>
+                <tr><th>item-f-footer</th></tr>
+                <tr><th>item-g-footer</th></tr>
+                <tr><th>item-h-footer</th></tr>
+                <tr><th>item-i-footer</th></tr>
+                <tr><th>item-j-footer</th></tr>
+                <tr><th>item-k-footer</th></tr>
+                <tr><th>item-l-footer</th></tr>
+                <tr><th>item-m-footer</th></tr>
+                <tr><th>item-n-footer</th></tr>
+                <tr><th>item-o-footer</th></tr>
+                <tr><th>item-p-footer</th></tr>
+                <tr><th>item-q-footer</th></tr>
+            </table>
         </div>
         <div class="fixed-x-scroll-bar">
             <div class="fixed-x-scroll-slider"></div>
@@ -153,6 +218,11 @@
         </div>
     </div>
 </div>
+
+<p>进行滚轮操作，可以上下滚动表格内容区</p>
+<p>按住 shift 进行滚轮操作，可以左右滚动表格内容区</p>
+<p>拖动滚动条，表格内容区即可进行滚动</p>
+<p>设置列宽，需要在 x-header 和 body 的该列第一个 td/th 上设置</p>
 
 <script src="../bower_components/requirejs/require.js"></script>
 <script>
@@ -170,8 +240,16 @@
     ], function ($, FixedHeadTable) {
 
         $(function () {
-            new FixedHeadTable({wrapId: 'fixedTableWrap'});
-            new FixedHeadTable({wrapId: 'fixedTableWrap2'});
+            //初始化
+            var table1 = new FixedHeadTable({wrapId: 'fixedTableWrap'});
+            var table2 = new FixedHeadTable({wrapId: 'fixedTableWrap2'});
+
+            //表格的尺寸，内容出现了变化，需要重新计算表格的内部的尺寸，并将各板块归位
+            setTimeout(function () {
+
+                table1.refresh();
+                table2.refresh();
+            }, 10000)
         });
     })
 </script>
