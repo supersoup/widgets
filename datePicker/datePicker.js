@@ -3,32 +3,66 @@
  */
 
 require([
-    'text!./datePicker.html',
+    'text!./datePicker.ejs',
     'jquery',
     'ejs'
 ], function (html, $) {
-    var wrap = $('.date-wrap');
-    wrap.on('click', '.date-header-previous', function () {
+    var $wrap = $('<div class="date-wrap date-wrap-' + $.expando + '"></div>');
+    var thisDay = new Date();
+    var thisYear = thisDay.getFullYear();
+    var thisMonth = thisDay.getMonth();
+    var thisDate = thisDay.getDate();
 
-    });
+    _init();
 
-    wrap.on('click', '.date-header-previous', function () {
+    function _init() {
+        $wrap.appendTo($('body'))
+            .hide();
 
-    });
+        $wrap.on('click', '.date-header-previous', function (event) {
 
-    wrap.on('change', '.date-header-years', function () {
+        });
 
-    });
+        $wrap.on('click', '.date-header-previous', function (event) {
 
-    wrap.on('change', '.date-header-months', function () {
+        });
 
-    });
+        $wrap.on('change', '.date-header-years', function () {
 
-    function init() {
+        });
 
+        $wrap.on('change', '.date-header-months', function () {
+
+        });
+
+        _render(thisYear, thisMonth);
+
+        $(document)
+            .on('focus', '.date-picker', function (event) {
+                var $target = $(event.target);
+                var height = $target.outerHeight();
+                var offset = $target.offset();
+                var offsetTop = offset.top;
+                var offsetLeft = offset.left;
+
+                $wrap
+                    .css({
+                        top: offsetTop + height + 'px',
+                        left: offsetLeft + 'px'
+                    })
+                    .show()
+            })
+            .on('click', function (event) {
+                var $target = $(event.target);
+
+                if (!$target.hasClass('date-picker') && !$target.parents('.date-wrap-' + $.expando).is($wrap)) {
+                    $wrap.hide();
+                }
+            });
     }
 
-    function render(year, month) {
+
+    function _render(year, month) {
         var firstDate = new Date(year, month - 1, 1);
         var lastDate = new Date(year, month, 0);
         var lastMonthLastDate = new Date(year, month - 1, 0);
@@ -75,18 +109,20 @@ require([
             }
         }
 
-        var thisDay = new Date();
+
         var options = {
             renderList: list,
             renderYear: year,
             renderMonth: month,
-            thisYear: thisDay.getFullYear(),
-            thisMonth: thisDay.getMonth(),
-            thisDate: thisDay.getDate()
+            thisYear: thisYear,
+            thisMonth: thisMonth,
+            thisDate: thisDate
         };
 
-        var tableStr = ejs(html, options);
+        var tableStr = ejs.render(html, options);
+
+        $wrap.html(tableStr);
     }
 
-    render(2018, 0)
+
 });
