@@ -53,13 +53,13 @@ td:hover {
     background: #dee5f8;
 }
 
-.date-input-current {
-    background: #6982bc;
-    color: white;
+.date-today {
+    color: #6982bc;
     font-weight: 700;
 }
 
-.date-today {
-    color: #6982bc;
+.date-input-current {
+    background: #6982bc;
+    color: white;
     font-weight: 700;
 }

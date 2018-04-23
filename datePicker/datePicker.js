@@ -83,7 +83,6 @@ require([
                             top: offsetTop + height + 'px',
                             left: offsetLeft + 'px'
                         })
-                        .show()
                 })
                 .on('click', function (event) {
                     var $target = $(event.target);
@@ -160,7 +159,9 @@ require([
             var tableStr = ejs.render(html, this.options);
 
             setTimeout(function () {
-                that.$wrap.html(tableStr);
+                that.$wrap
+                    .html(tableStr)
+                    .show()
             });
 
         },
