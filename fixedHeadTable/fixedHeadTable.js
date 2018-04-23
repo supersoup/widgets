@@ -3,7 +3,8 @@
  */
 
 define([
-	'jquery'
+	'jquery',
+	'css!./fixedHeadTable.css'
 ], function ($) {
 	function FixedHeadTable(options) {
 

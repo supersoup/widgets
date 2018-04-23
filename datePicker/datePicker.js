@@ -5,6 +5,7 @@
 require([
     'text!./datePicker.ejs',
     'jquery',
+    'css!./datePicker.css',
     'ejs'
 ], function (html, $) {
 
