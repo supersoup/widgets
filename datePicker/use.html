@@ -5,14 +5,25 @@
     <title>Title</title>
     <link rel="stylesheet" href="datePicker.css">
     <style>
-        .box {
+        form {
             margin: 100px;
+        }
+
+        .row {
+            padding: 20px 0;
         }
     </style>
 </head>
 <body>
-<form class="box">
-    <input class="date-picker" type="text">
+<form>
+    <div class="row">没有值的输入框，点击显示当前月：</div>
+    <!--使用时，只需要在-->
+    <div class="row"><input class="date-picker" type="text"></div>
+    <div class="row">有值的输入框，如果格式不是 yyyy-mm-dd 形式，点击显示当前月：</div>
+    <div class="row"><input class="date-picker" type="text" value="2015-02-3"></div>
+    <div class="row">有值的输入框，如果格式是 yyyy-mm-dd 形式，点击显示输入框值所在月份：</div>
+    <div class="row"><input class="date-picker" type="text" value="2015-02-13"></div>
+
 </form>
 
 
@@ -31,9 +42,7 @@
         'jquery',
         'datePicker'
     ], function ($) {
-        $(function () {
 
-        });
     })
 </script>
 

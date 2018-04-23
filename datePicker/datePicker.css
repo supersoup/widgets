@@ -1,11 +1,21 @@
 .date-wrap {
     width: 220px;
     position: absolute;
+    background: white;
 }
 
 .date-header {
     overflow: hidden;
-    background: lightblue;
+    padding: 5px;
+    background: #a0bae8;
+    text-align: center;
+}
+
+.date-header-previous,
+.date-header-next {
+    color: #4a608e;
+    font-weight: 700;
+    text-decoration: none;
 }
 
 .date-header-previous {
@@ -23,12 +33,33 @@
 
 th,
 td {
-    border: 1px solid grey;
+    border: 1px solid #a0bae8;
     height: 26px;
     line-height: 26px;
     vertical-align: middle;
+    text-align: center;
 }
 
 td {
     cursor: pointer;
+}
+
+td:hover {
+    background: #a0bae8;
+}
+
+.date-month-prev,
+.date-month-next {
+    background: #dee5f8;
+}
+
+.date-input-current {
+    background: #6982bc;
+    color: white;
+    font-weight: 700;
+}
+
+.date-today {
+    color: #6982bc;
+    font-weight: 700;
 }

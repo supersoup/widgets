@@ -46,7 +46,15 @@
         <% for (var i = 0; i < renderList.length; i = i + 7) { %>
         <tr class="date-date-row">
             <% for (var j = i; j < i + 7; j ++) { %>
-            <td><%= renderList[j].date %></td>
+            <td
+                class="<% if (renderList[j].monthIs === 'prev') { %>date-month-prev<% } %>
+                       <% if (renderList[j].monthIs === 'current') { %>date-month-current<% } %>
+                       <% if (renderList[j].monthIs === 'next') { %>date-month-next<% } %>
+                       <% if (renderList[j].year == inputYear && renderList[j].month == inputMonth && renderList[j].date == inputDate) { %>date-input-current<% } %>
+                       <% if (renderList[j].year == thisYear && renderList[j].month == thisMonth && renderList[j].date == thisDate) { %>date-today<% } %>"
+            >
+                <%= renderList[j].date %>
+            </td>
             <% } %>
         </tr>
         <% } %>
