@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .card {
+            width: 1200px;
+            margin: auto;
+        }
+
+        .content {
+            overflow-y: auto;
+            border: 1px solid #3f6091;
+            height: 500px;
+            padding: 20px;
+        }
+
+        .footer {
+            border: 1px solid #3f6091;
+            border-top: none;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+
+            table-layout: fixed;
+            border-collapse: collapse;
+        }
+
+        tr {
+            height: 40px;
+        }
+
+        th,
+        td {
+            border: 1px solid #3f6091;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <div class="content">
+        <table id="table1"></table>
+    </div>
+    <div class="footer" id="footer"></div>
+</div>
+
+
+
+<script src="../bower_components/requirejs/require.js"></script>
+<script>
+    require.config({
+        paths: {
+            jquery: '../bower_components/jquery/dist/jquery',
+            ejs: '../bower_components/ejs/ejs',
+            text: '../bower_components/text/text',
+            css: '../bower_components/require-css/css'
+        }
+    });
+
+    require([
+        'jquery',
+        'pager'
+    ], function ($, Pager) {
+        var $table1 = $('#table1');
+        var pager = new Pager({
+            node: $('#footer').get(0),
+            eachNumber: 10,
+            callback: fetch
+        });
+
+        //模拟数据总数
+        var count = Math.ceil(Math.random() * 200);
+
+        function fetch(page, eachNumber) {
+            setTimeout(function () {
+                var str = '';
+                var currentPageCount;
+                var idNum;
+                var cnt;
+                if ( page < (count / eachNumber) ) {
+                    currentPageCount = eachNumber;
+                } else {
+                    currentPageCount = count%eachNumber;
+                }
+
+                for (var i = 1; i <= currentPageCount; i ++) {
+                    idNum = i + (page - 1) * eachNumber;
+                    cnt = page + '--' +  Math.ceil(Math.random() * 10000);
+                    str += '<tr><th>' + idNum + '</th><td>' + cnt + '</td></tr>'
+                }
+
+                $table1.html(str);
+                pager.setCount(count);
+            }, 200);
+        }
+
+        //加载第一页
+        pager.setPage(1);
+    })
+</script>
+
+
+</body>
+</html>

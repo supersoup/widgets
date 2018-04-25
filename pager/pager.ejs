@@ -1,0 +1,42 @@
+<div class="pager">
+    <div class="pager-go">
+        <span>跳转到第</span>
+        <input class="pager-which" type="text" value="<%= pageWhich %>">
+        <span>页</span>
+        <input class="pager-go-button" type="button" value="跳转">
+    </div>
+
+    <% if (countShow) { %>
+    <div class="pager-info">
+        <div class="pager-info-total">
+            <span>共</span>
+            <span><%= count %></span>
+            <span>条</span>
+        </div>
+        <div class="pager-info-each">
+            <span>每页</span>
+            <select class="pager-each-number">
+                <option value="10" <% if (eachNumber == 10) { %>selected<% } %> >10</option>
+                <option value="20" <% if (eachNumber == 20) { %>selected<% } %> >20</option>
+                <option value="50" <% if (eachNumber == 50) { %>selected<% } %> >50</option>
+                <option value="100" <% if (eachNumber == 100) { %>selected<% } %> >100</option>
+            </select>
+            <span>条</span>
+        </div>
+    </div>
+    <% } %>
+
+    <ol class="pager-list">
+        <% if (current > 1) { %><li class="pager-item"><a class="pager-button" data-value="<%= current - 1 %>">上一页</a></li><% } %>
+        <% if (current > 3) { %><li class="pager-item"><a class="pager-button" data-value="1">1</a></li><% } %>
+        <% if (current > 4) { %><li class="pager-item">...</li><% } %>
+        <% if (current > 2) { %><li class="pager-item"><a class="pager-button" data-value="<%= current - 2 %>"><%= current - 2 %></a></li><% } %>
+        <% if (current > 1) { %><li class="pager-item"><a class="pager-button" data-value="<%= current - 1 %>"><%= current - 1 %></a></li><% } %>
+        <% if (current ) { %><li class="pager-item pager-current"><%= current %></li><% } %>
+        <% if (totalPage - current >= 1) { %><li class="pager-item"><a class="pager-button" data-value="<%= current + 1 %>"><%= current + 1 %></a></li><% } %>
+        <% if (totalPage - current >= 2 ) { %><li class="pager-item"><a class="pager-button" data-value="<%= current + 2 %>"><%= current + 2 %></a></li><% } %>
+        <% if (totalPage - current >= 4 ) { %><li class="pager-item">...</li><% } %>
+        <% if (totalPage - current >= 3 ) { %><li class="pager-item"><a class="pager-button" data-value="<%= totalPage %>"><%= totalPage %></a></li><% } %>
+        <% if (totalPage - current >= 1 ) { %><li class="pager-item"><a class="pager-button" data-value="<%= current + 1 %>">下一页</a></li><% } %>
+    </ol>
+</div>
