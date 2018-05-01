@@ -6,11 +6,6 @@ define([
     html,
     $
 ) {
-
-    var $window = $(window);
-    var $body = $('body');
-    var $doc = $(document);
-
     /**
      * NumberInput
      * @param options.selector
@@ -38,6 +33,8 @@ define([
         _init: function () {
             var that = this;
             var selector = this.selector;
+            var $body = $('body');
+            var $doc = $(document);
 
             this.$numberInput = $('<div class="number-input"></div>');
             var $numberInput = this.$numberInput;
@@ -137,8 +134,4 @@ define([
             new NumberInput(options);
         }
     }
-
-
-
-
 });

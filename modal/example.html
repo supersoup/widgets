@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>modal example</title>
     <style>
         form {
             margin-top: 50px;
@@ -37,19 +37,19 @@
 <body>
 
 <form>
-    <input class="input-text-a input-text-1" type="text" >
+    <input class="input-button" type="button" value="打开模态框">
 </form>
 
 <form>
-    <input class="input-text-a input-text-2" type="text" >
+    <input class=" input-text-2" type="text" >
 </form>
 
 <form>
-    <input class="input-text-b input-text-3" type="text" value="50">
+    <input class=" input-text-3" type="text" value="50">
 </form>
 
 <form>
-    <input class="input-text-b input-text-4" type="text" value="70">
+    <input class=" input-text-4" type="text" value="70">
 </form>
 <script src="../bower_components/requirejs/require.js"></script>
 
@@ -65,17 +65,12 @@
 
     require([
         'jquery',
-        'numberInput'
-    ], function ($, numberInput) {
-        numberInput.init({
-            selector: '.input-text-a'
-        });
+        'modal'
+    ], function ($, Modal) {
+        var modal1 = new Modal();
 
-        numberInput.init({
-            selector: '.input-text-b',
-            max: 100,
-            min: 50,
-            step: 10
+        $('.input-button').click(function () {
+            modal1.open();
         });
     })
 </script>

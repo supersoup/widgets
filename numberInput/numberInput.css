@@ -8,9 +8,19 @@
 
 .number-input-plus,
 .number-input-reduce {
-    font-size: 12px;
-    height: 100%;
     width: 50%;
+    height: 100%;
+    font-size: 12px;
+    background: #4a608e;
+    color: white;
+    outline: none;
+    border: 1px solid #eee;
+    cursor: pointer;
+}
+
+.number-input-plus:active,
+.number-input-reduce:active {
+    background: #2d4163;
 }
 
 .number-input-plus {
