@@ -32,19 +32,19 @@
 <body>
 
 <form>
-    <input class="input-text input-text-1" type="text" label="这是一个表单">
+    <input class="input-text-a input-text-1" type="text" >
 </form>
 
 <form>
-    <input class="input-text input-text-2" type="text" label="这是第二个表单, 如果这个 label 的字数比较的多">
+    <input class="input-text-a input-text-2" type="text" >
 </form>
 
 <form>
-    <input class="input-text input-text-3" type="text" label="这是第三个表单，如果这个 label 的字数比较的多，那么应该出现什么样的情况呢，我们来看一下。">
+    <input class="input-text-b input-text-3" type="text" value="50">
 </form>
 
 <form>
-    <input class="input-text input-text-4" type="text" label="<h3>水果有两种：</h3><ul><li>1. 西瓜</li><li>2. 苹果</li><li>3. 梨子</li></ul>">
+    <input class="input-text-b input-text-4" type="text" value="70">
 </form>
 <script src="../bower_components/requirejs/require.js"></script>
 
@@ -60,9 +60,18 @@
 
     require([
         'jquery',
-        'tooltip'
-    ], function ($, tooltip) {
-        tooltip.init('.input-text', 200);
+        'numberInput'
+    ], function ($, numberInput) {
+        numberInput.init({
+            selector: '.input-text-a'
+        });
+
+        numberInput.init({
+            selector: '.input-text-b',
+            max: 100,
+            min: 50,
+            step: 10
+        });
     })
 </script>
 </body>

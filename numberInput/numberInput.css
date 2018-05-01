@@ -1,0 +1,22 @@
+.number-input {
+    position: absolute;
+    z-index: 10;
+    display: none;
+    overflow: hidden;
+    width: 50px;
+}
+
+.number-input-plus,
+.number-input-reduce {
+    font-size: 12px;
+    height: 100%;
+    width: 50%;
+}
+
+.number-input-plus {
+    float: left;
+}
+
+.number-input-reduce {
+    float: right;
+}

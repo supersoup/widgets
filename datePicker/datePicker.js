@@ -9,13 +9,14 @@ require([
     'ejs'
 ], function (html, $) {
 
-    function DatePicker() {
+    function DatePicker(selector) {
         var thisDay = new Date();
 
         this.$wrap = $('<div class="date-wrap date-wrap-' + $.expando + '"></div>');
         this.thisYear = thisDay.getFullYear();
         this.thisMonth = thisDay.getMonth();
         this.thisDate = thisDay.getDate();
+        this.selector = selector;
 
         this._init();
     }
@@ -54,7 +55,7 @@ require([
             });
 
             $(document)
-                .on('focus', '.date-picker', function (event) {
+                .on('focus', this.selector, function (event) {
                     var $target = $(event.target);
                     var height = $target.outerHeight();
                     var offset = $target.offset();
@@ -259,5 +260,9 @@ require([
         }
     });
 
-    new DatePicker();
+    return {
+        init: function (selector) {
+            new DatePicker(selector);
+        }
+    };
 });
