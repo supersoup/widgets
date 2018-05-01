@@ -19,8 +19,7 @@
             clear: both;
         }
 
-        .input-text-2 {
-            width: 50px;
+        .input-button-2 {
             margin: 20px;
         }
 
@@ -37,11 +36,11 @@
 <body>
 
 <form>
-    <input class="input-button" type="button" value="打开模态框">
+    <input class="input-button-1" type="button" value="打开模态框1">
 </form>
 
 <form>
-    <input class=" input-text-2" type="text" >
+    <input class="input-button-2" type="button" value="打开模态框2">
 </form>
 
 <form>
@@ -65,12 +64,70 @@
 
     require([
         'jquery',
-        'modal'
-    ], function ($, Modal) {
-        var modal1 = new Modal();
+        'modal',
+        'text!./example-modal-content-1.html',
+        'text!./example-modal-content-2.html'
+    ], function ($, Modal, modalContentHtml1, modalContentHtml2) {
+        var cache = {};
 
-        $('.input-button').click(function () {
-            modal1.open();
+        $('.input-button-1').click(function () {
+
+            //把实例缓存起来，除非不存在时才 new，否则直接读缓存上的实例
+            if (!cache.modal1) {
+                cache.modal1 = new Modal({
+                    title: '段落展示（无交互）',
+                    content: modalContentHtml1
+                });
+            }
+
+            cache.modal1.open();
+        });
+
+        $('.input-button-2').click(function () {
+
+            //把实例缓存起来，除非不存在时才 new，否则直接读缓存上的实例
+            if (!cache.modal2) {
+                cache.modal2 = new Modal({
+                    title: '表单展示（具有交互效果）',
+                    content: modalContentHtml2,
+                    openBefore: function () {
+                        console.log('3000毫秒后打开弹窗!');
+
+                        var def = $.Deferred();
+                        setTimeout(function () {
+                            def.resolve();
+                        }, 3000);
+
+                        //返回 deferred 对象，则等待其 resolve 之后，才执行打开动画
+                        return def.promise();
+                    },
+                    openAfter: function () {
+                        //每次打开让 input2 加一个 b
+                        var $modal = this.$modal;
+                        var $input2 = $modal.find('.form-input-2');
+                        var val = $input2.val() + 'b';
+                        $input2.val(val);
+                    },
+                    handleList: [{
+                        text: '确定',
+                        //指定 callback，则需要手动关闭弹窗。
+                        callback: function () {
+                            console.log('2000毫秒之后，打印 this，并关闭弹窗!');
+                            var that = this;
+                            setTimeout(function () {
+                                console.log(that);
+                                that.close();
+                            }, 2000)
+                        },
+                        isPrimary: true
+                    }, {
+                        //不指定 callback，则为关闭弹窗
+                        text: '取消'
+                    }]
+                });
+            }
+
+            cache.modal2.open();
         });
     })
 </script>

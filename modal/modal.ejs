@@ -1,9 +1,31 @@
 <div class="modal-background"></div>
 <div class="modal-body">
-    <div class="modal-header"></div>
-    <div class="modal-content"></div>
-    <div class="modal-footer">
-        <button class="modal-button modal-button-primary">确定</button>
-        <button class="modal-button">取消</button>
+
+    <div class="modal-header">
+        <h2 class="modal-header-title"><%= title %></h2>
+        <% if (canClose) { %>
+        <a class="modal-header-close">X</a>
+        <% } %>
     </div>
+
+    <div class="modal-content">
+        <%- content %>
+    </div>
+
+    <% if (handleList.length > 0) { %>
+    <div class="modal-footer">
+        <% for (var i = 0; i < handleList.length; i ++) { %>
+        <button class="modal-button
+        <%if (handleList[i].isPrimary) { %>modal-button-primary<% } %>
+        "
+        data-index="
+        <%= i %>
+        "
+        >
+            <%= handleList[i].text %>
+        </button>
+        <% } %>
+    </div>
+    <% } %>
+
 </div>
