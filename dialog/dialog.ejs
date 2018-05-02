@@ -1,0 +1,21 @@
+<div class="dialog-body">
+    <div class="dialog-content">
+        <%- content %>
+    </div>
+    <% if (handleList.length > 0) { %>
+    <div class="dialog-footer">
+        <% for (var i = 0; i < handleList.length; i ++) { %>
+        <button class="dialog-button
+            <%if (handleList[i].isPrimary) { %>dialog-button-primary<% } %>
+            "
+            data-index="
+            <%= i %>
+            "
+        >
+            <%= handleList[i].text %>
+        </button>
+        <% } %>
+    </div>
+    <% } %>
+</div>
+<div class="dialog-arrow"></div>

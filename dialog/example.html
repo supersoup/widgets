@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>dialog example</title>
+    <style>
+        form {
+            margin-top: 50px;
+            border: 1px solid black;
+            padding-top: 300px;
+        }
+
+        form::after {
+            content: ' ';
+            display: table;
+            clear: both;
+        }
+
+        .input-button-2 {
+            margin: 20px;
+        }
+
+        .input-text-3 {
+            float: right;
+            margin: 10px;
+        }
+
+        .input-text-4 {
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<form>
+    <input class="input-button-1" type="button" value="设置1">
+</form>
+
+<form>
+    <input class="input-button-2" type="button" value="设置2">
+</form>
+
+<form>
+    <input class="input-button-3" type="button" value="简单打开">
+</form>
+
+<form>
+    <input class="input-button-4" type="button" value="自定义打开">
+</form>
+<script src="../bower_components/requirejs/require.js"></script>
+
+<script>
+    require.config({
+        paths: {
+            jquery: '../bower_components/jquery/dist/jquery',
+            ejs: '../bower_components/ejs/ejs',
+            text: '../bower_components/text/text',
+            css: '../bower_components/require-css/css'
+        }
+    });
+
+    require([
+        'jquery',
+        'dialog'
+    ], function ($, dialog) {
+
+        $('.input-button-1').click(function () {
+            dialog.config({
+                animateTime: 300,
+                content: '这是设置1，请确定'
+            })
+
+        });
+
+        $('.input-button-2').click(function () {
+            dialog.config({
+                animateTime: 1000,
+                content: '<dl><dt>这是</dt><dd>设置2</dd><dd>请确定</dd></dl>'
+            })
+        });
+
+        $('.input-button-3').click(function (event) {
+            dialog.open(event)
+        });
+
+        $('.input-button-4').click(function (event) {
+            dialog.open(event, {
+                content: '我不管默认是什么，我要显示我的内容！',
+                handleList: [{
+                    text: '确定',
+                    isPrimary: true,
+                    callback: function () {
+                        console.log('确定操作！');
+                    }
+                }, {
+                    text: '取消'
+                }]
+            })
+        });
+    })
+</script>
+</body>
+</html>

@@ -73,6 +73,12 @@ define([
             $modal.on('click', '.modal-button', function (event) {
                 that._handleFooterButtonClick(event);
             });
+
+            var modalBg = $modal.find('.modal-background');
+            modalBg.on('click', function () {
+                that._close();
+            });
+
         },
 
         _handleFooterButtonClick: function (event) {
@@ -159,6 +165,8 @@ define([
             this._open(time);
         }
     });
+
+
 
     return Modal;
 });

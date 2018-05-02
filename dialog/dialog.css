@@ -1,0 +1,36 @@
+.dialog {
+    position: absolute;
+    z-index: 10;
+    display: none;
+    padding: 10px 3px;
+}
+
+.dialog-body {
+    border-radius: 4px;
+    width: 300px;
+    background: #f0f0ff;
+}
+
+.dialog-content,
+.dialog-footer {
+    padding: 14px;
+}
+
+.dialog-footer {
+    border-top: 1px solid white;
+}
+
+.dialog-arrow {
+    position: absolute;
+    border: 10px solid transparent;
+}
+
+.dialog-arrow-top {
+    border-bottom-color: #f0f0ff;
+    top: -10px;
+}
+
+.dialog-arrow-bottom {
+    border-top-color: #f0f0ff;
+    bottom: -10px;
+}

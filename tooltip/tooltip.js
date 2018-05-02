@@ -1,10 +1,12 @@
 define([
     'text!./tooltip.html',
     'jquery',
+    '../util/manualFadeIn',
     'css!./tooltip.css'
 ], function (
     html,
-    $
+    $,
+    manualFadeIn
 ) {
 
     var $tooltip = $('<div class="tooltip"></div>');
@@ -36,43 +38,46 @@ define([
                 var targetOffsetTop = $target.offset().top;
                 var targetOffsetLeft = $target.offset().left;
 
-                var maxLeftHalfWidth = targetOffsetLeft + (targetWidth / 2);
-                var maxRightHalfWidth = windowWidth - targetOffsetLeft - (targetWidth / 2);
-                var tooltipMaxWidth = 2 * Math.min(maxLeftHalfWidth, maxRightHalfWidth);
-                $tooltip.css('maxWidth', tooltipMaxWidth + 'px');
+                //如果还在消失的动画过程中，则清楚消失动画
+                $tooltip.stop(true);
 
-                var tooltipHeight = $tooltip.innerHeight();
-                var tooltipWidth = Math.min($tooltip.innerWidth(), tooltipMaxWidth);
+                manualFadeIn($tooltip, time, function () {
+                    var maxLeftHalfWidth = targetOffsetLeft + (targetWidth / 2);
+                    var maxRightHalfWidth = windowWidth - targetOffsetLeft - (targetWidth / 2);
+                    var tooltipMaxWidth = 2 * Math.min(maxLeftHalfWidth, maxRightHalfWidth);
+                    $tooltip.css('maxWidth', tooltipMaxWidth + 'px');
 
-                $tooltip.fadeIn(time);
+                    var tooltipHeight = $tooltip.innerHeight();
+                    var tooltipWidth = Math.min($tooltip.innerWidth(), tooltipMaxWidth);
 
-                //是否太靠下
-                var isTooBottom = windowHeight + windowScrollTop - targetOffsetTop < tooltipHeight + targetHeight;
+                    //是否太靠下
+                    var isTooBottom = windowHeight + windowScrollTop - targetOffsetTop < tooltipHeight + targetHeight;
 
-                //让 tooltip 的中心和 target 的中心对齐
-                var tooltipLeft = targetOffsetLeft + (targetWidth / 2) - (tooltipWidth / 2) + 'px';
+                    //让 tooltip 的中心和 target 的中心对齐
+                    var tooltipLeft = targetOffsetLeft + (targetWidth / 2) - (tooltipWidth / 2) + 'px';
 
-                if (isTooBottom) {
-                    $tooltip.css({
-                        top: (targetOffsetTop - tooltipHeight) + 'px',
-                        left: tooltipLeft
-                    });
-                    $arrow
-                        .addClass('tooltip-arrow-bottom')
-                        .removeClass('tooltip-arrow-top')
-                } else {
-                    $tooltip.css({
-                        top: (targetOffsetTop + targetHeight) + 'px',
-                        left: tooltipLeft
-                    });
-                    $arrow
-                        .addClass('tooltip-arrow-top')
-                        .removeClass('tooltip-arrow-bottom')
-                }
+                    if (isTooBottom) {
+                        $tooltip.css({
+                            top: (targetOffsetTop - tooltipHeight) + 'px',
+                            left: tooltipLeft
+                        });
+                        $arrow
+                            .addClass('tooltip-arrow-bottom')
+                            .removeClass('tooltip-arrow-top')
+                    } else {
+                        $tooltip.css({
+                            top: (targetOffsetTop + targetHeight) + 'px',
+                            left: tooltipLeft
+                        });
+                        $arrow
+                            .addClass('tooltip-arrow-top')
+                            .removeClass('tooltip-arrow-bottom')
+                    }
+                });
             })
             .on('mouseleave', selector, function () {
                 $tooltip.fadeOut(time);
-            })
+            });
     }
 
     return {
