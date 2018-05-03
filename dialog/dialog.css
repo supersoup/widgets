@@ -2,13 +2,13 @@
     position: absolute;
     z-index: 10;
     display: none;
-    padding: 10px 3px;
 }
 
 .dialog-body {
     border-radius: 4px;
     width: 300px;
-    background: #f0f0ff;
+    background: white;
+    box-shadow: 0 0 20px 0 #aaa;
 }
 
 .dialog-content,
@@ -18,19 +18,42 @@
 
 .dialog-footer {
     border-top: 1px solid white;
+    text-align: right;
 }
 
 .dialog-arrow {
     position: absolute;
     border: 10px solid transparent;
+    border-bottom-color: white;
+    top: -20px;
 }
 
-.dialog-arrow-top {
-    border-bottom-color: #f0f0ff;
-    top: -10px;
+.dialog-top .dialog-arrow {
+    border-bottom-color: transparent;
+    border-top-color: white;
+    top: auto;
+    bottom: -20px;
 }
 
-.dialog-arrow-bottom {
-    border-top-color: #f0f0ff;
-    bottom: -10px;
+.dialog-button {
+    margin-left: 10px;
+    border: 1px solid #2d4163;
+    border-radius: 4px;
+    padding: 4px 10px;
+    color: #2d4163;
+    cursor: pointer;
+    background: white;
+}
+
+.dialog-button:active {
+    background: #eee;
+}
+
+.dialog-button-primary {
+    background: #4a608e;
+    color: white;
+}
+
+.dialog-button-primary:active {
+    background: #2d4163;
 }

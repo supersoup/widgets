@@ -14,7 +14,7 @@ define([
 
 	function Dialog(options) {
 		var defaultOptions = {
-			animateTime: 300,
+			animateTime: 200,
 			defaultContent: '是否确定？'    //如果不在打开时指定 content，则使用默认 defaultContent（可通过 config 修改 defaultContent）
 		};
 		$.extend(this, defaultOptions, options);
@@ -50,6 +50,7 @@ define([
 		},
 
 		_open: function (event, options) {
+			var that = this;
 			var handleList= this.handleList = options && options.handleList;
 			var content = options && options.content;
 
@@ -83,27 +84,33 @@ define([
 				var arrowLeft = targetOffsetLeft > left ? targetOffsetLeft - left + 10 + 'px' : '10px';
 
 				//如果太靠下，则在上方展示 dialog
-				var isTooBottom = windowScrollTop + windowHeight < targetOffsetTop + targetHeight + $dialogHeight;
+				var isTooBottom = windowScrollTop + windowHeight + 12 < targetOffsetTop + targetHeight + $dialogHeight;
 
 				if (isTooBottom) {
-					$dialog.css({
-						top: targetOffsetTop - $dialogHeight + 'px',
-						left: left
-					});
-					$arrow
-						.addClass('dialog-arrow-bottom')
-						.removeClass('dialog-arrow-top');
+					$dialog
+						.addClass('dialog-top')
+						.css({
+							top: targetOffsetTop - $dialogHeight - 12 + 'px',
+							left: left
+						})
+
 				} else {
-					$dialog.css({
-						top: targetOffsetTop + targetHeight,
-						left: left
-					});
-					$arrow
-						.addClass('dialog-arrow-top')
-						.removeClass('dialog-arrow-bottom');
+					$dialog
+						.removeClass('dialog-top')
+						.css({
+							top: targetOffsetTop + targetHeight + 12 + 'px',
+							left: left
+						})
 				}
 
 				$arrow.css('left', arrowLeft);
+
+				//为了阻止本次点击冒泡到 document 上，导致 dialog 打开就关闭
+				that.isOpening = true;
+				setTimeout(function () {
+					that.isOpening = false;
+				}, 10)
+
 			});
 		},
 
@@ -115,12 +122,14 @@ define([
 
 	$(document).on('click', function (event) {
 		var $target = $(event.target);
-		var isInDialog = !$target.hasClass('dialog') && !$target.parents().hasClass('dialog');
-		var isAlreadyInit = dialog;
-		var isHide;
+		var isInDialog = $target.hasClass('dialog') || $target.parents().hasClass('dialog');
+		var isNotInit = !dialog;
+		var isOpening = dialog && dialog.isOpening;
 
 		//todo:还存在 bug，每次打开后都会关闭
-		if ( !(isInDialog || isAlreadyInit || isHide) ) {
+		if (isInDialog || isNotInit || isOpening) {
+			console.log('aaa');
+		} else {
 			dialog._close();
 		}
 	});
