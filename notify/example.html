@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>notify example</title>
+    <style>
+        form {
+            margin-top: 50px;
+            border: 1px solid black;
+            padding-top: 300px;
+        }
+
+        form::after {
+            content: ' ';
+            display: table;
+            clear: both;
+        }
+
+        .input-button-2 {
+            margin: 20px;
+        }
+
+        .input-button-3 {
+            float: right;
+            margin: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+<form>
+    <input class="input-button-1" type="button" value="信息">
+</form>
+
+<form>
+    <input class="input-button-2" type="button" value="成功">
+</form>
+
+<form>
+    <input class="input-button-3" type="button" value="失败">
+</form>
+
+<script src="../bower_components/requirejs/require.js"></script>
+
+<script>
+    require.config({
+        paths: {
+            jquery: '../bower_components/jquery/dist/jquery',
+            ejs: '../bower_components/ejs/ejs',
+            text: '../bower_components/text/text',
+            css: '../bower_components/require-css/css'
+        }
+    });
+
+    require([
+        'jquery',
+        'notify'
+    ], function ($, Notify) {
+        $('.input-button-1').click(function () {
+            new Notify({
+                content: '信息信息信息信息信息信息信息信息信息！',
+                time: 5000
+            })
+        });
+
+        $('.input-button-2').click(function () {
+            new Notify({
+                type: 'success',
+                content: '恭喜你，你的操作成功了！',
+                time: 5000,
+                handleList: [{
+                    text: '下一步',
+                    isPrimary: true,
+                    callback: function () {
+                        console.log('下一步');
+                    }
+                }, {
+                    text: '再做一次',
+                    callback: function () {
+                        console.log('再做一次');
+                    }
+                }, {
+                    text: '放弃'
+                }]
+            })
+        });
+
+        $('.input-button-3').click(function () {
+            new Notify({
+                type: 'fail',
+                content: '<strong>本次操作</strong>失败！请问你要怎么做？',
+                handleList: [{
+                    text: '重做',
+                    isPrimary: true,
+                    callback: function () {
+                        console.log('重做');
+                    }
+                }, {
+                    text: '放弃'
+                }]
+            })
+        });
+
+    })
+</script>
+</body>
+</html>

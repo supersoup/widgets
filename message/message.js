@@ -57,7 +57,6 @@ define([
 				this.hasClosed = true;
 
 				this.$message.animate({'top': -this.height + 'px'}, animateTime, function () {
-					//todo: 如何卸载该元素
 					that.$message.empty();
 				});
 			}

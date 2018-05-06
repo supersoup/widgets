@@ -16,10 +16,10 @@ bower install ejs jquery#1.12.4 requirejs requirejs-text require-css
 * modal: 模态框
 * dialog: 气泡对话框
 * message: 消息
+* notify: 通知
 
 ## 计划中
 
-* notify: 通知
 * tree: 树形菜单
 * slider: 拖动滑块
 * checkboxList: 多选框列表

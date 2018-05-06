@@ -1,0 +1,83 @@
+.notify-list {
+    position: fixed;
+    top: 0;
+    right: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 0;
+    padding: 0;
+    width: 400px;
+    max-height: 100%;
+    list-style: none;
+}
+
+.notify {
+    position: relative;
+    left: 400px;
+    margin: 20px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    width: 360px;
+    box-shadow: 0 0 20px 0 #aaa;
+    background: #bed9ff;
+}
+
+.notify-success {
+    background: #d6ffe1;
+}
+
+.notify-fail {
+    background: #ffd5b7;
+}
+
+.notify-close {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    margin-top: -8px;
+    width: 14px;
+    height: 14px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.notify-content {
+    padding: 14px 40px 14px 20px;
+}
+
+.notify-footer {
+    padding: 14px 40px 14px 20px;
+}
+
+.notify-button {
+    margin-right: 10px;
+    border: 1px solid #2d4163;
+    border-radius: 4px;
+    padding: 4px 10px;
+    color: #2d4163;
+    cursor: pointer;
+    background: white;
+}
+
+.notify-button:active {
+    background: #eee;
+}
+
+.notify-button-primary {
+    background: #4a608e;
+    color: white;
+}
+
+.notify-button-primary:active {
+    background: #2d4163;
+}
+
+
+.notify-close {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    margin-top: -8px;
+    width: 14px;
+    height: 14px;
+}

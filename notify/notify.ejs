@@ -1,0 +1,21 @@
+<div class="notify-body">
+    <div class="notify-content">
+        <%- content %>
+    </div>
+    <% if (handleList.length > 0) {%>
+    <div class="notify-footer">
+        <% for (var i = 0; i < handleList.length; i ++) { %>
+        <button class="notify-button
+            <%if (handleList[i].isPrimary) { %>notify-button-primary<% } %>
+            "
+            data-index="
+            <%= i %>
+            "
+        >
+            <%= handleList[i].text %>
+        </button>
+        <% } %>
+    </div>
+    <% } %>
+</div>
+<div class="notify-close">x</div>
