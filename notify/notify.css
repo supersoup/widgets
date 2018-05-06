@@ -9,6 +9,7 @@
     width: 400px;
     max-height: 100%;
     list-style: none;
+    font-size: 14px;
 }
 
 .notify {
@@ -46,7 +47,7 @@
 }
 
 .notify-footer {
-    padding: 14px 40px 14px 20px;
+    padding: 0 40px 14px 20px;
 }
 
 .notify-button {

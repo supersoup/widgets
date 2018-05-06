@@ -105,6 +105,21 @@
             })
         });
 
+        setTimeout(function () {
+            new Notify({
+                content: '你收到一个漂流瓶，请问您将怎么处理？',
+                handleList: [{
+                    text: '打开它',
+                    isPrimary: true,
+                    callback: function () {
+                        console.log('打开它');
+                    }
+                }, {
+                    text: '忽略'
+                }]
+            })
+        }, 2000);
+
     })
 </script>
 </body>

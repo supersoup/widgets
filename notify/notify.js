@@ -51,7 +51,7 @@ define([
 			that._handleFooterButtonClick(event);
 		});
 
-		$notifyList.prepend($notify);
+		$notifyList.append($notify);
 
 		$notify
 			.animate({left: 0}, animateTime, function () {
