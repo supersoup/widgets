@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>searchInput example</title>
+    <style>
+        form {
+            margin-top: 50px;
+            border: 1px solid black;
+            padding-top: 300px;
+        }
+
+        form::after {
+            content: ' ';
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+
+<form>
+    <input class="input-text-1" type="text" >
+</form>
+
+<form>
+    <input class="input-text-2" type="text" >
+</form>
+
+<script src="../bower_components/requirejs/require.js"></script>
+
+<script>
+    require.config({
+        paths: {
+            jquery: '../bower_components/jquery/dist/jquery',
+            ejs: '../bower_components/ejs/ejs',
+            text: '../bower_components/text/text',
+            css: '../bower_components/require-css/css',
+            mock: '../bower_components/mockjs/dist/mock-min'
+        }
+    });
+
+    require([
+        'jquery',
+        'mock',
+        'searchInput'
+    ], function ($, Mock, searchInput) {
+        var mock = Mock.mock;
+
+//        searchInput.init('.input-text-1', fetchSync);
+//        searchInput.init('.input-text-2', fetchAsync);
+
+        //模拟一个同步请求
+        function fetchSync(text) {
+            var arr = [];
+            var count = Math.ceil(Math.random() * 6) + 4;
+
+            for (var i = 0; i < count; i ++) {
+                arr.push(text + mock('@cword(3, 5)'));
+            }
+
+            return arr;
+        }
+
+        //模拟一个异步请求
+        function fetchAsync(text) {
+            var def = $.Deferred();
+
+            setTimeout(function () {
+                var arr = fetchSync(text);
+                def.resolve(arr);
+            }, 200);
+
+            return def.promise();
+        }
+    });
+</script>
+</body>
+</html>
