@@ -18,6 +18,10 @@
             display: table;
             clear: both;
         }
+
+        .input-text-1 {
+            width: 300px;
+        }
     </style>
 </head>
 <body>
@@ -50,13 +54,16 @@
     ], function ($, Mock, searchInput) {
         var mock = Mock.mock;
 
-//        searchInput.init('.input-text-1', fetchSync);
+        searchInput.init({
+            selector: '',
+            refreshCallback: fetchSync
+        });
 //        searchInput.init('.input-text-2', fetchAsync);
 
         //模拟一个同步请求
         function fetchSync(text) {
             var arr = [];
-            var count = Math.ceil(Math.random() * 6) + 4;
+            var count = 5;
 
             for (var i = 0; i < count; i ++) {
                 arr.push(text + mock('@cword(3, 5)'));

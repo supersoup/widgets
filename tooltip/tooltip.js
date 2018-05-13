@@ -35,8 +35,9 @@ define([
 
                 var targetHeight = $target.outerHeight();
                 var targetWidth = $target.outerWidth();
-                var targetOffsetTop = $target.offset().top;
-                var targetOffsetLeft = $target.offset().left;
+                var targetOffset = $target.offset();
+                var targetOffsetTop = targetOffset.top;
+                var targetOffsetLeft = targetOffset.left;
 
                 //如果还在消失的动画过程中，则清楚消失动画
                 $tooltip.stop(true);
