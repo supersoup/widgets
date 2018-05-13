@@ -15,7 +15,7 @@ define([
 
     function SearchList() {
         this.$searchList = $('<ul class="search-input-list"></ul>');
-        this.$targetInput = null;
+        this.$input = null;
         this.$items = null;
         this.index = 0;
         this.list = [];
@@ -32,31 +32,30 @@ define([
             $body.append($searchList);
 
             $searchList
-                .on('click', 'search-input-item', function (event) {
-                    var $target = event.$target;
-                    var text = $target.text();
-
-                    that._updateInput();
+                .on('click', '.search-input-item', function (event) {
+                    that._handleClickItem(event);
                 })
         },
 
-        close: function () {
+        _close: function () {
             this.isShow = false;
+            this.list = [];
             this.$items = null;
             this.$searchList.hide();
         },
 
-        renderAndOpenSearchList: function (list, $target) {
+        _renderAndOpenSearchList: function (list, $target) {
+        	var that = this;
             var length = list.length;
             this.list = list;
-            this.$targetInput = $target;
-
-            if (length > 0) {
-                this._refresh();
-                this._setPosition();
-            } else {
-                this.close();
-            }
+            this.$input = $target;
+	
+	        if (length > 0) {
+		        this._refresh();
+		        this._setPosition();
+	        } else {
+		        this._close();
+	        }
         },
 
         _refresh: function () {
@@ -83,7 +82,7 @@ define([
         _setPosition: function () {
             var that = this;
             var $searchList = this.$searchList;
-            var $target = this.$targetInput;
+            var $target = this.$input;
 
             var targetWidth = $target.outerWidth();
             $searchList.css('width', targetWidth - 2 + 'px');
@@ -97,8 +96,6 @@ define([
                 var targetHeight = $target.outerHeight();
 
                 var windowScrollTop = $window.scrollTop();
-                var windowScrollLeft = $window.scrollLeft();
-                var screenWidth = $window.width();
                 var screenHeight = $window.height();
 
                 var isTooBottom = targetTop + targetHeight + listHeight - windowScrollTop > screenHeight;
@@ -108,110 +105,136 @@ define([
                 $searchList.css({
                     top: top + 'px',
                     left: targetLeft + 'px'
-                })
+                });
             })
         },
-
-        _updateInput: function () {
-            var list = this.list;
-            var index = this.index;
-            var val = list[index];
-
-            this.$target.val(val);
-            this.close();
-        },
-
-        _moveUpOrDown: function (isUp) {
-            var $searchList = this.$searchList;
-            var index = this.index;
-            var currentClass = 'search-input-item-current';
-            var $items;
-            var length;
-            var newIndex;
-            var $oldItem;
-            var $newItem;
-
-            if (!this.isShow) {
-                return;
-            }
-
-            if (this.$items === null) {
-                this.$items = $searchList.find('.search-input-item');
-            }
-
-            $items = this.$items;
-            length = $items.length;
-
-            if (isUp) {
-                if (index === 0) {
-                    newIndex = length - 1;
-                } else {
-                    newIndex = index - 1;
-                }
-            } else {
-                if (index === length - 1) {
-                    newIndex = 0;
-                } else {
-                    newIndex = index + 1;
-                }
-            }
-
-            $oldItem = $($items[index]);
-            $newItem = $($items[newIndex]);
-
-            this.index = newIndex;
-            $oldItem.removeClass(currentClass);
-            $newItem.addClass(currentClass);
-        }
+	    
+	    _handleKeyDown: function(event, refreshCallback) {
+        	var that = this;
+		    var keyCode = event.keyCode;
+		    var $target = $(event.target);
+		    var isEnter = keyCode === 13;
+		    var isUp = keyCode === 38;
+		    var isDown = keyCode === 40;
+		    var isTab = keyCode === 9;
+		    
+		    if (isEnter) {
+			    this._handleEnter(event);
+		    } else if (isUp || isDown) {
+			    event.preventDefault();
+			    this._handleMoveUpOrDown(isUp);
+		    } else if (isTab) {
+		    	this._close();
+		    } else {
+			    //解决中文输入法的问题
+			    setTimeout(function () {
+				    var text = $target.val();
+				    var cbVal = refreshCallback(text);
+				
+				    if ( cbVal && $.isFunction(cbVal.then) ) {
+					    cbVal.then(function (list) {
+						    that._renderAndOpenSearchList(list, $target);
+					    })
+				    } else if ( $.isArray(cbVal) ) {
+					    that._renderAndOpenSearchList(cbVal, $target);
+				    }
+			    });
+		    }
+	    },
+	
+	    _handleMoveUpOrDown: function (isUp) {
+		    var $searchList = this.$searchList;
+		    var index = this.index;
+		    var currentClass = 'search-input-item-current';
+		    var $items;
+		    var length;
+		    var newIndex;
+		    var $oldItem;
+		    var $newItem;
+		
+		    if (!this.isShow) {
+			    return;
+		    }
+		
+		    if (this.$items === null) {
+			    this.$items = $searchList.find('.search-input-item');
+		    }
+		
+		    $items = this.$items;
+		    length = $items.length;
+		
+		    if (isUp) {
+			    if (index === 0) {
+				    newIndex = length - 1;
+			    } else {
+				    newIndex = index - 1;
+			    }
+		    } else {
+			    if (index === length - 1) {
+				    newIndex = 0;
+			    } else {
+				    newIndex = index + 1;
+			    }
+		    }
+		
+		    $oldItem = $($items[index]);
+		    $newItem = $($items[newIndex]);
+		
+		    this.index = newIndex;
+		    $oldItem.removeClass(currentClass);
+		    $newItem.addClass(currentClass);
+	    },
+	    
+	    _handleEnter: function(event) {
+        	var isShow = this.isShow;
+        	
+		    if (isShow) {
+		    	//只有在模糊搜索框的情况下，才阻止默认事件，否则还是进行应有的事件，比如表单提交
+			    event.preventDefault();
+			    this._updateInput();
+		    }
+	    },
+	
+	    _handleClickItem: function (event) {
+        	var $target = $(event.target);
+        	var index = $target.data('index');
+        	this.index = index - 0;
+        	
+		    this._updateInput();
+	    },
+	
+	    _updateInput: function () {
+		    var list = this.list;
+		    var index = this.index;
+		    var val = list[index];
+		
+		    this.$input.val(val);
+		    this._close();
+	    }
     });
-
-    searchList = new SearchList();
 
     $doc.on('click', function (event) {
         var $target = $(event.target);
-        searchList.close();
+        var isNotSearchItem = !$target.hasClass('search-input-item');
+        
+        if (isNotSearchItem && searchList) {
+	        searchList._close();
+        }
     });
 
     function init(options) {
         var selector = options.selector;
         var refreshCallback = options.refreshCallback;
+        
+        if (!searchList) {
+	        searchList = new SearchList();
+        }
 
         $doc.on('keydown', selector, function (event) {
-            var keyCode = event.keyCode;
-            var $target = $(event.target);
-            var isEnter = keyCode === 13;
-            var isUp = keyCode === 38;
-            var isDown = keyCode === 40;
-
-            if (isEnter) {
-                event.preventDefault();
-            } else if (isUp || isDown) {
-                event.preventDefault();
-                searchList._moveUpOrDown(isUp);
-            } else {
-                //解决中文输入法的问题
-                setTimeout(function () {
-                    var text = $target.val();
-                    var cbVal = refreshCallback(text);
-
-                    if ( cbVal && $.isFunction(cbVal.then) ) {
-                        cbVal.then(function (list) {
-                            renderList(list, $target);
-                        })
-                    } else if ( $.isArray(cbVal) ) {
-                        renderList(cbVal, $target);
-                    }
-                });
-            }
-
-            function renderList(list, $target) {
-                searchList.renderAndOpenSearchList(list, $target);
-            }
+	        searchList._handleKeyDown(event, refreshCallback);
         });
     }
-
-
-
+    
     return {
         init: init
     }

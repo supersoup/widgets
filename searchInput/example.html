@@ -55,15 +55,22 @@
         var mock = Mock.mock;
 
         searchInput.init({
-            selector: '',
+            selector: '.input-text-1',
             refreshCallback: fetchSync
         });
-//        searchInput.init('.input-text-2', fetchAsync);
+
+        searchInput.init({
+            selector: '.input-text-2',
+            refreshCallback: fetchAsync
+        });
 
         //模拟一个同步请求
         function fetchSync(text) {
             var arr = [];
-            var count = 5;
+            var sum = 8;
+            var length = text.length;
+
+            var count = sum - length;
 
             for (var i = 0; i < count; i ++) {
                 arr.push(text + mock('@cword(3, 5)'));
