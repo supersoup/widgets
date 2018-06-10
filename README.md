@@ -18,6 +18,7 @@ bower install ejs jquery#1.12.4 requirejs requirejs-text require-css mockjs
 * message: 消息
 * notify: 通知
 * searchInput: 模糊搜索框
+* select：下拉框
 
 ## 计划中
 

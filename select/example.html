@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>searchInput example</title>
+    <style>
+        form {
+            margin-top: 50px;
+            border: 1px solid black;
+            padding-top: 300px;
+        }
+
+        form::after {
+            content: ' ';
+            display: table;
+            clear: both;
+        }
+
+        .input-text-1 {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+
+<form>
+    <select id="slc" name="aa" disabled>
+        <option value="1">a</option>
+        <option value="2" selected="selected">b</option>
+        <option value="3">c</option>
+    </select>
+
+</form>
+
+<form>
+    <input id="txt" type="text">
+    <input id="btn" type="button" value="set">
+    <input id="btn2" type="button" value="get">
+</form>
+
+<script src="../bower_components/requirejs/require.js"></script>
+
+<script>
+    require.config({
+        paths: {
+            jquery: '../bower_components/jquery/dist/jquery',
+            ejs: '../bower_components/ejs/ejs',
+            text: '../bower_components/text/text',
+            css: '../bower_components/require-css/css',
+            mock: '../bower_components/mockjs/dist/mock-min'
+        }
+    });
+
+    require([
+        'jquery',
+        'mock',
+        './select'
+    ], function ($, Mock, Select) {
+        var $slc = $('#slc');
+        var $btn = $('#btn');
+        var $btn2 = $('#btn2');
+        var $txt = $('#txt');
+
+        console.log($slc.get(0).selectedIndex);
+
+        var mySelect = new Select({
+            node: document.querySelector('#slc')
+        });
+
+        console.log(mySelect.getSelected());
+
+        $btn.click(function () {
+            var value = $txt.val();
+            mySelect.setValue(value);
+        });
+
+        $btn2.click(function () {
+            var obj = mySelect.getSelected();
+
+            console.log('native: selectedIndex', $slc.get(0).selectedIndex);
+            console.log('native: value', $slc.get(0).value);
+            console.log('Select: index', obj.index);
+            console.log('Select: value', obj.value);
+            console.log('Select: text', obj.text);
+        });
+
+    });
+</script>
+</body>
+</html>
