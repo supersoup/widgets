@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>checkboxList</title>
+    <style>
+        form {
+            border: 1px solid gray;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        .field {
+            margin: 10px;
+        }
+
+        .field::after {
+            display: table;
+            clear: both;
+        }
+
+        .field-title {
+            float: left;
+            width: 200px;
+            text-align: right;
+        }
+
+        .field-content {
+            margin-left: 220px;
+        }
+    </style>
+</head>
+<body>
+
+<form action="/widgets/checkboxList/example.html">
+    <div class="field">
+        <div class="field-title">水果：</div>
+        <div class="field-content">
+            <div id="ckl1">
+                <label><input type="checkbox" value="1" name="fruits" checked><span>桔子</span></label>
+                <label><input type="checkbox" value="2" name="fruits"><span>苹果</span></label>
+                <label><input type="checkbox" value="3" name="fruits"><span>西瓜</span></label>
+            </div>
+        </div>
+    </div>
+
+    <div class="field">
+        <div class="field-title">动物：</div>
+        <div class="field-content">
+            <div><label id="ckl2Title"><input type="checkbox"><span>全部选择</span></label></div>
+            <div id="ckl2Content">
+                <label><input type="checkbox" value="1" name="animals"><span>猫猫</span></label>
+                <label><input type="checkbox" value="2" name="animals"><span>狗狗</span></label>
+                <label><input type="checkbox" value="3" name="animals"><span>兔兔</span></label>
+            </div>
+        </div>
+    </div>
+
+    <div class="field">
+        <div class="field-content">
+            <input type="submit" value="提交">
+        </div>
+    </div>
+</form>
+
+<script src="../bower_components/requirejs/require.js"></script>
+<script>
+    require.config({
+        paths: {
+            jquery: '../bower_components/jquery/dist/jquery',
+            ejs: '../bower_components/ejs/ejs',
+            text: '../bower_components/text/text',
+            css: '../bower_components/require-css/css'
+        }
+    });
+
+    require([
+        'jquery',
+        'checkboxList'
+    ], function ($, checkboxList) {
+
+    })
+</script>
+</body>
+</html>
