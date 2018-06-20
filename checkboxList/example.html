@@ -48,9 +48,20 @@
     </div>
 
     <div class="field">
+        <div class="field-title">蔬菜：</div>
+        <div class="field-content">
+            <div id="ckl2">
+                <label><input type="checkbox" value="1" name="vegetables" checked><span>桔子</span></label>
+                <label><input type="checkbox" value="2" name="vegetables" checked><span>苹果</span></label>
+                <label><input type="checkbox" value="3" name="vegetables" checked><span>西瓜</span></label>
+            </div>
+        </div>
+    </div>
+
+    <div class="field">
         <div class="field-title">动物：</div>
         <div class="field-content">
-            <div><label id="ckl2Title"><input type="checkbox"><span>全部选择</span></label></div>
+            <div><label><input type="checkbox" id="ckl2Title"><span>全部选择</span></label></div>
             <div id="ckl2Content">
                 <label><input type="checkbox" value="1" name="animals"><span>猫猫</span></label>
                 <label><input type="checkbox" value="2" name="animals"><span>狗狗</span></label>
@@ -80,8 +91,20 @@
     require([
         'jquery',
         'checkboxList'
-    ], function ($, checkboxList) {
+    ], function ($, CheckboxList) {
+        new CheckboxList({
+            wrap: document.getElementById('ckl1')
+        });
 
+        new CheckboxList({
+            wrap: document.getElementById('ckl2')
+        });
+
+
+        new CheckboxList({
+            checkboxAll: document.getElementById('ckl2Title'),
+            wrap: document.getElementById('ckl2Content')
+        })
     })
 </script>
 </body>
