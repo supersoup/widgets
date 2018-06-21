@@ -2,6 +2,8 @@ define([
     'jquery',
     'css!./select.css'
 ], function ($) {
+    
+    var selectList = [];
 
     function Select(options) {
         var $select = this.$select = $(options.node);
@@ -26,6 +28,12 @@ define([
         });
         $button.on('click', function () {
             that._toggleOption();
+        });
+        
+        //注册到 selectList 上，用来事件绑定时判断
+        selectList.push({
+            $wrap: $wrap,
+            select: this
         });
 
         return this;
@@ -63,7 +71,6 @@ define([
         },
 
         fetchList: function (list) {
-
             this._renderList();
         },
 
@@ -139,6 +146,19 @@ define([
                 index: this.$select.get(0).selectedIndex
             }
         }
+    });
+    
+    $(document).on('click', function (event) {
+        var $target = $(event.target);
+        
+        $.each(selectList, function (i, item) {
+            var $parents = $target.parents('.select');
+            var wrapNode = $parents.get(0);
+
+            if (!(wrapNode && item.$wrap.is(wrapNode))) {
+                item.select._close();
+            }
+        })
     });
 
     return Select;

@@ -27,12 +27,17 @@
 <body>
 
 <form>
-    <select id="slc" name="aa" disabled>
+    <select name="aa" id="slc1"  disabled>
         <option value="1">a</option>
         <option value="2" selected="selected">b</option>
         <option value="3">c</option>
     </select>
 
+    <select name="bb" id="slc2">
+        <option value="11">aaa</option>
+        <option value="22">bbb</option>
+        <option value="33" selected="selected">ccc</option>
+    </select>
 </form>
 
 <form>
@@ -59,7 +64,7 @@
         'mock',
         './select'
     ], function ($, Mock, Select) {
-        var $slc = $('#slc');
+        var $slc = $('#slc1');
         var $btn = $('#btn');
         var $btn2 = $('#btn2');
         var $txt = $('#txt');
@@ -67,7 +72,11 @@
         console.log($slc.get(0).selectedIndex);
 
         var mySelect = new Select({
-            node: document.querySelector('#slc')
+            node: document.querySelector('#slc1')
+        });
+
+        new Select({
+            node: document.querySelector('#slc2')
         });
 
         console.log(mySelect.getSelected());
@@ -86,7 +95,6 @@
             console.log('Select: value', obj.value);
             console.log('Select: text', obj.text);
         });
-
     });
 </script>
 </body>

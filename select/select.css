@@ -24,7 +24,7 @@
     width: 14px;
     height: 14px;
     background: url(arrow.png) no-repeat center center;
-    transform: rotate(0);
+    transform: rotate(0deg);
     transition: transform .3s;
 }
 
@@ -42,6 +42,7 @@
     padding: 0 16px;
     height: 0;
     list-style: none;
+    background: white;
     box-shadow: 0 0 10px 0 #444;
 }
 
