@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>transfer example</title>
+    <style>
+        .transfer-field {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="transfer-field" id="tsf1"></div>
+<div class="transfer-field" id="tsf2"></div>
+
+<div>
+    <button id="btn1">get tsf1</button>
+    <button id="btn2">get tsf2</button>
+</div>
+
+<script src="../bower_components/requirejs/require.js"></script>
+
+<script>
+    require.config({
+        paths: {
+            jquery: '../bower_components/jquery/dist/jquery',
+            ejs: '../bower_components/ejs/ejs',
+            text: '../bower_components/text/text',
+            css: '../bower_components/require-css/css'
+        }
+    });
+
+    require([
+        'jquery',
+        'transfer'
+    ], function ($, Transfer) {
+        var list1 = [{
+            text: 'aaa',
+            value: '1'
+        }, {
+            text: 'bbb',
+            value: '2'
+        }, {
+            text: 'ccc',
+            value: '3'
+        }, {
+            text: 'ddd',
+            value: '4'
+        }, {
+            text: 'eee',
+            value: '5'
+        }, {
+            text: 'fff',
+            value: '6'
+        }];
+
+        var list2 = [{
+            text: 'eee',
+            value: '5'
+        }, {
+            text: 'ggg',
+            value: '7'
+        }];
+
+        var tsf1 = new Transfer({
+            wrap: document.querySelector('#tsf1'),
+            list: list1
+        });
+
+        var tsf2 = new Transfer({
+            wrap: document.querySelector('#tsf2'),
+            list: list1,
+            valueList: list2
+        });
+
+        $('#btn1').click(function () {
+            console.log(tsf1.getValue());
+        });
+
+        $('#btn2').click(function () {
+            console.log(tsf2.getValue());
+        })
+    })
+</script>
+
+</body>
+</html>

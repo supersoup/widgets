@@ -1,0 +1,25 @@
+<div class="transfer-left">
+    <div class="transfer-tittle">待选</div>
+    <div>
+        <select class="transfer-list" multiple>
+            <% for (var i = 0; i < list.length; i ++) { %>
+            <option value="<%= list[i].value %>"><%= list[i].text %></option>
+            <% } %>
+        </select>
+    </div>
+</div>
+<div class="transfer-buttons">
+    <button class="transfer-button transfer-add">添加</button>
+    <button class="transfer-button transfer-remove">删除</button>
+    <button class="transfer-button transfer-clear">清空</button>
+</div>
+<div class="transfer-right">
+    <div class="transfer-tittle">已选</div>
+    <div>
+        <select class="transfer-value" multiple>
+            <% for (var j = 0; j < valueList.length; j ++) { %>
+            <option value="<%= valueList[j].value %>"><%= valueList[j].text %></option>
+            <% } %>
+        </select>
+    </div>
+</div>

@@ -20,13 +20,13 @@ bower install ejs jquery#1.12.4 requirejs requirejs-text require-css mockjs
 * searchInput: 模糊搜索框
 * select：下拉框
 * checkboxList: 多选框列表
+* transfer: 穿梭选择器
 
 ## 计划中
 
 * tree: 树形菜单
 * slider: 拖动滑块
 * searchSelect: 模糊搜索选择器
-* transfer: 穿梭选择器
 
 ## 说明
 

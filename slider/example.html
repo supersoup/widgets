@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>slider example</title>
+</head>
+<body>
+
+<div id="sld1"></div>
+
+<script src="../bower_components/requirejs/require.js"></script>
+
+<script>
+    require.config({
+        paths: {
+            jquery: '../bower_components/jquery/dist/jquery',
+            ejs: '../bower_components/ejs/ejs',
+            text: '../bower_components/text/text',
+            css: '../bower_components/require-css/css'
+        }
+    });
+
+    require([
+        'jquery',
+        'slider'
+    ], function ($, Slider) {
+        new Slider({
+            wrap: document.querySelector('#sld1')
+        })
+    })
+</script>
+</body>
+</html>
