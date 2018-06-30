@@ -26,7 +26,6 @@ bower install ejs jquery#1.12.4 requirejs requirejs-text require-css mockjs
 
 * tree: 树形菜单
 * slider: 拖动滑块
-* searchSelect: 模糊搜索选择器
 
 ## 说明
 
