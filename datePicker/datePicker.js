@@ -2,7 +2,7 @@
  * Created by supersoup on 18/4/6.
  */
 
-require([
+define([
     'text!./datePicker.ejs',
     'jquery',
     'css!./datePicker.css',
