@@ -1,0 +1,162 @@
+@import "../commonStyle/variable";
+@import "../commonStyle/mixin";
+
+.wd-tree-table {
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+
+	tr {
+		border-top: 1px solid $light-3;
+		border-bottom: 1px solid $light-3;
+
+		&:hover {
+			background: $color-al-l;
+		}
+	}
+
+	th,
+	td {
+		padding: 8px;
+		text-align: center;
+		word-break-wrap:  break-word;
+		word-break: break-all;
+	}
+
+	th {
+		background: $color-al;
+	}
+
+	&.wd-tree-table-has-col-border {
+		th,
+		td {
+			border: 1px solid $light-3;
+		}
+	}
+
+	.wd-tree-table-head-sorter {
+
+		cursor: pointer;
+
+		//&:hover {
+		//	background: $color-al-l;
+		//}
+
+		&:active {
+			background: $color-al-d;
+		}
+
+		.wd-tree-table-head-text {
+			padding-right: 12px;
+			background: url($url-images + 'components/table/sort-null.png') no-repeat center right;
+		}
+	}
+
+	.wd-tree-table-head-sorter-asc {
+		//background: $light-3;
+		//color: white;
+
+		.wd-tree-table-head-text {
+			background-image: url($url-images + 'components/table/sort-asc.png');
+		}
+	}
+
+	.wd-tree-table-head-sorter-desc {
+		//background: $light-3;
+		//color: white;
+
+		.wd-tree-table-head-text {
+			background-image: url($url-images + 'components/table/sort-desc.png');
+		}
+	}
+
+	.wd-tree-table-first-col {
+		text-align: left;
+	}
+	//
+	//.wd-tree-table-first-col-clickable {
+	//	cursor: pointer;
+	//	background: url($url-images + 'components/table/down.png') no-repeat 20px center;
+	//}
+	//
+	//.wd-tree-table-tr-level-0 {
+	//	.wd-tree-table-first-col {
+	//		padding-left: 38px;
+	//	}
+	//}
+	//
+	//.wd-tree-table-tr-level-1 {
+	//	.wd-tree-table-first-col {
+	//		padding-left: 68px;
+	//	}
+	//}
+	//
+	//.wd-tree-table-tr-level-2 {
+	//	.wd-tree-table-first-col {
+	//		padding-left: 98px;
+	//	}
+	//}
+	//
+	//.wd-tree-table-tr-level-3 {
+	//	.wd-tree-table-first-col {
+	//		padding-left: 128px;
+	//	}
+	//}
+}
+
+.wd-tree-table-first-button {
+	padding-left: 30px;
+}
+
+.wd-tree-table-first-col-children-closed {
+	.wd-tree-table-first-button {
+		background: url($url-images + 'components/table/up.png') no-repeat 10px center;
+	}
+}
+
+.wd-tree-table-first-button-clickable {
+	background: url($url-images + 'components/table/down.png') no-repeat 10px center;
+	cursor: pointer;
+
+}
+
+.wd-tree-table-tr-level-1 {
+	.wd-tree-table-first-button {
+		margin-left: 30px;
+	}
+}
+
+.wd-tree-table-tr-level-2 {
+	.wd-tree-table-first-button {
+		margin-left: 60px;
+	}
+}
+
+.wd-tree-table-tr-close-by-0 {
+	display: none;
+}
+
+.wd-tree-table-tr-close-by-1 {
+	display: none;
+}
+
+.wd-tree-table-tr-close-by-2 {
+	display: none;
+}
+
+.wd-tree-table-tr-close-by-3 {
+	display: none;
+}
+
+.wd-tree-table-head-wrap-fix-vertical {
+	overflow-y: scroll;
+	overflow-x: hidden\9;
+}
+
+.wd-tree-table-body-wrap-fix-vertical {
+	overflow-y: scroll;
+	overflow-x: hidden\9;
+	border-bottom: 1px solid $light-3;
+}
+
+

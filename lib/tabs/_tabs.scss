@@ -1,0 +1,56 @@
+@import "../commonStyle/variable";
+@import "../commonStyle/mixin";
+
+.wd-tabs-more-button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 0 8px;
+	height: 46px;
+	line-height: 46px;
+	color: $color-c;
+	cursor: pointer;
+	background: white;
+}
+
+.wd-tabs-dropdown {
+	position: absolute;
+	overflow: hidden;
+	padding: 12px 0;
+	background: $light-0;
+}
+
+.wd-tabs-dropdown-opacity {
+	@include opacity(0);
+}
+
+.wd-tabs-dropdown-row {
+	overflow: hidden;
+}
+
+.wd-tabs-dropdown-item {
+	float: left;
+	width: 29%;
+	padding: 10px 2%;
+}
+
+.wd-tabs-dropdown-button {
+	display: block;
+	border: 1px solid $light-3;
+	padding: 12px 24px;
+	border-radius: 4px;
+	font-size: 16px;
+	text-align: center;
+	cursor: pointer;
+	background: $light-2;
+	color: $dark-1;
+
+	&:active {
+		background: $light-3;
+	}
+}
+
+.wd-tabs-dropdown-button-current {
+	border-color: $color-a;
+	background: $color-al;
+}

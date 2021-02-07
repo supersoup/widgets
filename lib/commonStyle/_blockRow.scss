@@ -1,0 +1,37 @@
+@import "./variable";
+@import "./mixin";
+
+.wd-row {
+	@include cls;
+	padding: 0 8px;
+}
+
+.wd-col-1 {
+	width: 100%;
+	float: left;
+}
+
+.wd-col-2 {
+	width: 50%;
+	float: left;
+}
+
+.wd-col-3 {
+	width: 33.3%;
+	float: left;
+}
+
+.wd-col-4 {
+	width: 25%;
+	float: left;
+}
+
+.wd-responsive-middle {
+	.wd-middle-col-1 {
+		width: 100%;
+	}
+
+	.wd-middle-col-2 {
+		width: 50%;
+	}
+}

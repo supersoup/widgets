@@ -1,0 +1,33 @@
+@import "../commonStyle/variable";
+@import "../commonStyle/mixin";
+
+.wd-items {
+	display: inline-block;
+	overflow: hidden;
+}
+
+.wd-items-item {
+	float: left;
+	margin-right: 18px;
+	border-radius: 4px;
+	height: 28px;
+	line-height: 28px;
+	padding: 0 12px;
+	background: $color-a;
+}
+
+.wd-items-item-close {
+	float: left;
+	margin: 6px 6px 0 0;
+	@include whpx(16, 16);
+	background: url($url-images + 'components/items/close.png') no-repeat center center;
+	cursor: pointer;
+
+	&:active {
+		background: url($url-images + 'components/items/close-active.png') no-repeat center center;
+	}
+}
+
+.wd-items-item-text {
+	color: $dark-3;
+}

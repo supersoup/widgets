@@ -1,0 +1,19 @@
+@import '../commonStyle/mixin';
+
+.wd-loading {
+	position: absolute;
+	display: none;
+	@include tblr;
+	@include opacity(70);
+	background: white;
+}
+
+.wd-loading-img {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -12px;
+	margin-top: -12px;
+	@include whpx(24, 24);
+	//z-index: -1;
+}

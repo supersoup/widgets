@@ -1,0 +1,77 @@
+@import "../commonStyle/variable";
+@import "../commonStyle/mixin";
+
+
+.wd-slider {
+	position: relative;
+	z-index: 1;
+	//overflow: hidden;
+
+	&:hover {
+		.wd-slider-handler {
+			border: 4px solid $color-ad;
+
+			border-width: 0 \9;
+			background: $color-ad-d \9;
+		}
+
+		.wd-slider-range {
+			background: $color-ad;
+		}
+	}
+}
+
+.wd-slider-mouse-range {
+	position: relative;
+	z-index: 2;
+	margin: 0 7px;
+	height: 26px;
+	cursor: pointer;
+}
+
+.wd-slider-tooltip {
+	position: absolute;
+	display: none;
+	top: -30px;
+	//margin-left: -50%;
+	padding: 4px 8px;
+	background: $light-0;
+	border: 1px solid $light-3;
+	border-radius: 12px;
+	box-shadow: 0 0 10px 0 $light-3;
+}
+
+
+.wd-slider-bar {
+	position: absolute;
+	top: 0;
+	z-index: -1;
+	margin: 10px 7px;
+	height: 6px;
+	//width: 300px;
+	background: $light-3;
+}
+
+.wd-slider-range {
+	height: 6px;
+	width: 0;
+	background: $color-a;
+}
+
+.wd-slider-handler {
+	position: relative;
+	top: -10px;
+	left: 0;
+	margin-left: -7px;
+	border-radius: 7px;
+	border: 4px solid $color-a;
+	@include whpx(6,6);
+
+	border-width: 0 \9;
+	width: 14px \9;
+	height: 14px \9;
+
+	background: $light-0;
+	background: $color-ad \9;
+	//cursor: move
+}

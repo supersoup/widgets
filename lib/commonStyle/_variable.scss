@@ -1,0 +1,54 @@
+//color
+
+$color-a: #FED630;	//主色
+$color-ad: #e9c130;	//主色深
+$color-ad-d: #cba62d;	//主色深
+$color-al: #FBF5CB;	//主色浅
+$color-al-l: lighten($color-al, 4%);	//主色浅稍浅
+$color-al-d: darken($color-al, 4%);	//主色浅稍浅
+$color-b: #FF6633;	//辅色
+$color-c: #3B92CB;	//点缀
+$color-c-l: #9ce5f5;	//点缀
+$color-d: #2BB764;	//点缀
+$color-d: #2BB764;	//点缀
+$color-primary: #FED630;
+
+$color-info: #dae9ff;
+$color-success: #e8ffee;
+$color-fail: #fbe6d7;
+
+$dark-0: #000000;
+$dark-1: #222222;
+$dark-2: #333333;
+$dark-3: #444444;
+$dark-4: #6B6E77;
+
+$light-0: #FFFFFF;
+$light-1: #FAFBFC;
+$light-2: #FAFAFA;
+$light-3: #DDDDDD;	//边框线
+$light-4: #bbbbbb;	//边框线
+
+$color-grey-1: #666666;
+$color-grey-2: #aaaaaa;
+
+//font-size
+$font-xs: 12px;
+$font-a: 14px;
+$font-b: 16px;
+$font-c: 18px;
+
+//z-index
+$z-modal: 100;
+$z-notify: 200;
+$z-message: 300;
+$z-dialog: 400;
+$z-form-widget: 500;
+$z-tooltip: 600;
+
+
+// border
+$border-f5: 1px solid #F5F5F5;
+
+//url
+$url-images: '../../common/images/'

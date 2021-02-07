@@ -1,0 +1,42 @@
+@import "../commonStyle/variable";
+@import "../commonStyle/mixin";
+
+.wd-tooltip {
+	position: absolute;
+	overflow: hidden;
+	z-index: $z-tooltip;
+	padding: 10px 0;
+}
+
+.wd-tooltip-content {
+	overflow: hidden;
+	border-radius: 4px;
+	padding: 14px;
+	max-width: 400px;
+	@include opacity(80);
+	color: white;
+	background: $dark-0;
+}
+
+.wd-tooltip-arrow {
+	position: absolute;
+	border: 10px solid transparent;
+}
+
+.wd-tooltip-arrow-top,
+.wd-tooltip-arrow-bottom {
+	left: 50%;
+	margin-left: -10px;
+}
+
+.wd-tooltip-arrow-top {
+	border-bottom-color: $dark-0;
+	@include opacity(80);
+	top: -10px;
+}
+
+.wd-tooltip-arrow-bottom {
+	border-top-color: $dark-0;
+	@include opacity(80);
+	bottom: -10px;
+}

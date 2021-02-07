@@ -1,0 +1,18 @@
+@import '../commonStyle/variable';
+
+.wd-checkboxes {
+	display: inline-block;
+	padding-top: 6px;
+
+	label {
+		display: inline-block;
+		margin-right: 18px;
+	}
+
+	input {
+		margin-right: 4px;
+		position: relative;
+		top: -2px;
+		top: 0 \9;
+	}
+}

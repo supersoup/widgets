@@ -1,0 +1,142 @@
+@import "../commonStyle/variable";
+@import "../commonStyle/mixin";
+
+.wd-table {
+	//width: 100%;
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+
+	tr {
+		border-top: 1px solid $light-3;
+		border-bottom: 1px solid $light-3;
+	}
+
+	th,
+	td {
+		padding: 8px;
+		text-align: center;
+		overflow-wrap:  break-word;
+		word-wrap:  break-word;
+		word-break: break-all;
+	}
+
+	th {
+		background: $color-al;
+	}
+
+	.wd-table-row-even {
+		background: $light-2;
+	}
+
+	.wd-table-tr-hover {
+		background: $color-al-l;
+	}
+
+	.wd-table-checkbox-label {
+		display: block;
+		cursor: pointer;
+	}
+
+	.wd-table-head-sorter {
+
+		cursor: pointer;
+
+		&:active {
+			background: $color-al-d;
+		}
+
+		.wd-table-head-text {
+			padding-right: 12px;
+			background: url($url-images + 'components/table/sort-null.png') no-repeat center right;
+		}
+	}
+
+	.wd-table-head-sorter-asc {
+		//background: $light-3;
+		//color: white;
+
+		.wd-table-head-text {
+			background-image: url($url-images + 'components/table/sort-asc.png');
+		}
+	}
+
+	.wd-table-head-sorter-desc {
+		//background: $light-3;
+		//color: white;
+
+		.wd-table-head-text {
+			background-image: url($url-images + 'components/table/sort-desc.png');
+		}
+	}
+}
+
+.wd-table-wrap {
+	padding-right: 1px \9;
+}
+
+.wd-table-has-col-border {
+	th,
+	td {
+		border: 1px solid $light-3;
+	}
+}
+
+.wd-table-wrap-fixable {
+	position: relative;
+}
+
+.wd-table-left-wrap,
+.wd-table-right-wrap {
+	position: absolute;
+	top: 0;
+	overflow: hidden;
+	background: white;
+}
+
+.wd-table-left-wrap {
+	left: 0;
+	border-right: 1px solid $light-4;
+}
+
+.wd-table-right-wrap {
+	right: 0;
+	border-left: 1px solid $light-4;
+}
+
+.wd-table-hover-by-css {
+	tr:hover {
+		background: $color-al-l;
+	}
+}
+
+.wd-table-no-data {
+	display: none;
+	padding-top: 180px;
+	height: 120px;
+	border: 1px solid $light-3;
+	color: $light-4;
+	text-align: center;
+	background: $light-2 url($url-images + 'components/table/no-data.png') no-repeat center center;
+}
+
+.wd-table-wrap-no-data {
+	.wd-table-no-data {
+		display: block;
+	}
+}
+
+.wd-table-head-wrap-fix-vertical {
+	overflow-y: scroll;
+	overflow-x: hidden\9;
+
+}
+
+.wd-table-body-wrap-fix-vertical {
+	overflow-y: scroll;
+	overflow-x: hidden\9;
+	border-bottom: 1px solid $light-3;
+
+}
+
+

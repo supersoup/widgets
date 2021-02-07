@@ -1,0 +1,29 @@
+@import "../commonStyle/variable";
+@import "../commonStyle/mixin";
+
+.wd-chooser {
+	display: inline-block;
+	border: 1px solid $color-a;
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+.wd-chooser-button {
+	display: inline-block;
+	padding: 0 16px;
+	border-right: 1px solid $color-a;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	font-weight: 700;
+	color: $dark-2;
+	cursor: pointer;
+}
+
+.wd-chooser-button-current {
+	background: $color-a;
+}
+
+.wd-chooser-button-last {
+	border-right: none;
+}

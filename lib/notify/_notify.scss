@@ -1,7 +1,11 @@
-.notify-list {
+@import "../commonStyle/variable";
+@import "../commonStyle/mixin";
+
+.wd-notify-list {
     position: fixed;
     top: 0;
     right: 0;
+    z-index: $z-notify;
     overflow-x: hidden;
     overflow-y: auto;
     margin: 0;
@@ -12,26 +16,26 @@
     font-size: 14px;
 }
 
-.notify {
+.wd-notify {
     position: relative;
     left: 400px;
     margin: 20px;
-    border: 1px solid #aaa;
+    border: 1px solid $light-3;
     border-radius: 4px;
     width: 360px;
-    box-shadow: 0 0 20px 0 #aaa;
-    background: #bed9ff;
+    box-shadow: 0 0 10px 0 $light-3;
+    background: $color-info;
 }
 
-.notify-success {
-    background: #d6ffe1;
+.wd-notify-success {
+    background: $color-success;
 }
 
-.notify-fail {
-    background: #ffd5b7;
+.wd-notify-fail {
+    background: $color-fail;
 }
 
-.notify-close {
+.wd-notify-close {
     position: absolute;
     top: 50%;
     right: 14px;
@@ -42,39 +46,19 @@
     cursor: pointer;
 }
 
-.notify-content {
+.wd-notify-content {
     padding: 14px 40px 14px 20px;
 }
 
-.notify-footer {
+.wd-notify-footer {
     padding: 0 40px 14px 20px;
 }
 
-.notify-button {
+.wd-notify-button {
     margin-right: 10px;
-    border: 1px solid #2d4163;
-    border-radius: 4px;
-    padding: 4px 10px;
-    color: #2d4163;
-    cursor: pointer;
-    background: white;
 }
 
-.notify-button:active {
-    background: #eee;
-}
-
-.notify-button-primary {
-    background: #4a608e;
-    color: white;
-}
-
-.notify-button-primary:active {
-    background: #2d4163;
-}
-
-
-.notify-close {
+.wd-notify-close {
     position: absolute;
     top: 50%;
     right: 14px;

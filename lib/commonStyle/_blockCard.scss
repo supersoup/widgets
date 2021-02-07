@@ -1,0 +1,35 @@
+@import "./variable";
+@import "./mixin";
+
+.wd-card {
+
+}
+
+.wd-card-head {
+	padding: 12px 24px;
+	@include cls;
+	line-height: 24px;
+	border-bottom: 1px solid $light-3;
+	background: $light-0;
+}
+
+.wd-card-head-title {
+	font-size: $font-b;
+	font-weight: 700;
+	color: $dark-0;
+}
+
+.wd-card-head-right {
+	float: right;
+	line-height: 24px;
+}
+
+.wd-card-body {
+	padding: 12px 24px;
+	background: $light-0;
+}
+
+.wd-card-foot {
+	padding: 12px 24px;
+	background: $light-1;
+}

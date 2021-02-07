@@ -1,0 +1,90 @@
+@import "../commonStyle/variable";
+@import "../commonStyle/mixin";
+
+.wd-html-modal-open {
+    overflow: hidden;
+    //padding-right: 17px;
+}
+
+.wd-modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    @include bg(30);
+    overflow-y: auto;
+    z-index: $z-modal;
+}
+
+.wd-modal-body {
+    position: relative;
+    margin: auto;
+    border-radius: 4px;
+    width: 800px;
+    background: white;
+}
+
+.wd-modal-small {
+    .wd-modal-body {
+        width: 400px;
+    }
+}
+
+.wd-modal-large {
+    .wd-modal-body {
+        width: 1200px;
+    }
+}
+
+.wd-modal-full {
+    .wd-modal-body {
+        width: 100%;
+    }
+}
+
+.wd-modal-header {
+    @include cls();
+    padding: 12px 24px;
+    border-bottom: 1px solid $light-3;
+    line-height: 24px;
+}
+
+.wd-modal-header-title {
+    margin: 0;
+    float: left;
+    font-size: $font-b;
+    font-weight: 700;
+    color: $dark-0;
+}
+
+.wd-modal-header-close {
+    float: right;
+    font-size: $font-b;
+    padding: 0 4px;
+    color: $dark-4;
+    cursor: pointer;
+
+    &:hover {
+        color: $dark-1;
+    }
+}
+
+.wd-modal-header-close:hover {
+    color: #444;
+}
+
+.wd-modal-content {
+    padding: 12px 24px;
+}
+
+.wd-modal-footer {
+    padding: 12px 24px;
+    border-top: 1px solid $light-3;
+    text-align: right;
+}
+
+.wd-modal-button {
+    margin-left: 20px;
+}

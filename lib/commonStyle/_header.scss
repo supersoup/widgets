@@ -1,0 +1,14 @@
+@import "./variable";
+@import "./mixin";
+
+// header
+.header{
+	position: fixed;
+	top: 0;
+	left: 208px;
+	right: 0;
+	height: 80px;
+	border-bottom: $border-f5;
+}
+
+

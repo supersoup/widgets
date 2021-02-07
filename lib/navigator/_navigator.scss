@@ -1,0 +1,88 @@
+@import "../commonStyle/variable";
+@import "../commonStyle/mixin";
+
+.wd-navigator {
+	position: relative;
+}
+
+.wd-navigator-list-wrap {
+	overflow: hidden;
+	margin: 0 24px;
+}
+
+.wd-navigator-list {
+	position: relative;
+	width: 10000px;
+	overflow: hidden;
+}
+
+.wd-navigator-item {
+	position: relative;
+	float: left;
+	border: 1px solid $light-3;
+	border-bottom: none;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	margin-right: 6px;
+	background: $light-2;
+}
+
+.wd-navigator-item-link {
+	display: block;
+	//word-wrap: normal;
+	word-break: keep-all \9;
+	padding: 0 24px 0 32px;
+	color: $dark-4;
+	line-height: 38px;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.wd-navigator-item-current {
+	border-color: $color-a;
+	background: $color-al;
+	color: $dark-2;
+}
+
+.wd-navigator-close {
+	position: absolute;
+	top: 12px;
+	left: 12px;
+	@include whpx(14, 14);
+	text-align: center;
+	cursor: pointer;
+	background: transparent url($url-images + 'components/navigator/close.png') no-repeat center center;
+
+	&:active {
+		background: transparent url($url-images + 'components/navigator/close-active.png') no-repeat center center;
+	}
+}
+
+.wd-navigator-left,
+.wd-navigator-right {
+	position: absolute;
+	top: 10px;
+	@include whpx(18, 18);
+	cursor: pointer;
+}
+
+.wd-navigator-left {
+	left: 0;
+	background: url($url-images + 'components/navigator/chevron-left.png') no-repeat center center;
+
+	&:active {
+		background: url($url-images + 'components/navigator/chevron-left-active.png') no-repeat center center;
+	}
+}
+
+.wd-navigator-right {
+	right: 0;
+	background: url($url-images + 'components/navigator/chevron-right.png') no-repeat center center;
+
+	&:active {
+		background: url($url-images + 'components/navigator/chevron-right-active.png') no-repeat center center;
+	}
+}
+
+
+

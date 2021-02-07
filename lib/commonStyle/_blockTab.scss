@@ -1,0 +1,42 @@
+@import "./variable";
+@import "./mixin";
+
+.wd-tab {
+	position: relative;
+	padding: 2px 12px 0 12px;
+	border-bottom: 1px solid $light-3;
+	box-shadow: -2px 2px 3px 0 $light-3;
+	height: 46px;
+	overflow: hidden;
+}
+
+.wd-tab-list {
+	@include cls;
+	position: absolute;
+}
+
+.wd-tab-item {
+	float: left;
+	margin: 0 10px;
+}
+
+.wd-tab-item-link {
+	display: block;
+	padding: 0 12px;
+	height: 42px;
+	line-height: 42px;
+	font-size: $font-b;
+	font-weight: 700;
+	cursor: pointer;
+	color: $dark-3;
+	border-bottom: 4px solid transparent;
+}
+
+.wd-tab-item-link-current {
+	color: $color-b;
+	border-bottom-color: $color-b;
+}
+
+.wd-tab-pane {
+	display: none;
+}

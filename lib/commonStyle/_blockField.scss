@@ -1,0 +1,30 @@
+@import "./variable";
+@import "./mixin";
+
+.wd-field {
+	padding-top: 8px;
+	min-height: 40px;
+}
+
+.wd-field-title {
+	float: left;
+	padding-top: 6px;
+	width: 100px;
+}
+
+.wd-field-comment {
+	font-size: $font-xs;
+	color: $dark-4
+}
+
+.wd-field-content {
+	margin-left: 104px;
+}
+
+.wd-field-ie8-placeholder {
+	display: none;
+	display: block\0;
+	padding-top: 4px;
+	color: $light-4;
+	font-size: 12px;
+}

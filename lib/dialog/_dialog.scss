@@ -1,0 +1,54 @@
+@import "../commonStyle/variable";
+@import "../commonStyle/mixin";
+
+.wd-dialog {
+	position: absolute;
+	z-index: $z-dialog;
+	display: none;
+}
+
+.wd-dialog-body {
+	border-radius: 4px;
+	border: 1px solid $light-3;
+	width: 300px;
+	background: $light-0;
+	box-shadow: 0 0 10px 0 $light-3;
+}
+
+.wd-dialog-content,
+.wd-dialog-footer {
+	padding: 14px;
+}
+
+.wd-dialog-footer {
+	border-top: 1px solid $light-3;
+	text-align: right;
+}
+
+.wd-dialog-arrow {
+	position: absolute;
+	border: 10px solid transparent;
+	border-bottom-color: $light-0;
+	top: -19px;
+}
+
+.wd-dialog-arrow-border {
+	position: absolute;
+	border: 10px solid transparent;
+	border-bottom-color: $light-3;
+	top: -20px;
+}
+
+.wd-dialog-top .wd-dialog-arrow {
+	border-bottom-color: transparent;
+	border-top-color: $light-0;
+	top: auto;
+	bottom: -19px;
+}
+
+.wd-dialog-top .wd-dialog-arrow-border {
+	border-bottom-color: transparent;
+	border-top-color: $light-3;
+	top: auto;
+	bottom: -20px;
+}

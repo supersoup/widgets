@@ -1,0 +1,42 @@
+@import "../commonStyle/variable";
+@import "../commonStyle/mixin";
+
+.wd-message {
+    position: fixed;
+    z-index: $z-message;
+    left: 50%;
+    margin-left: -187px;
+    border: 1px solid $light-3;
+    border-radius: 4px;
+    box-shadow: 0 0 10px 1px $light-3;
+    padding: 14px 54px 14px 20px;
+    width: 300px;
+
+    font-size: 12px;
+    opacity: 0;
+    color: $dark-4;
+    background: $color-info;
+}
+
+.wd-message-success {
+    background: $color-success;
+}
+
+.wd-message-fail {
+    background: $color-fail;
+}
+
+.wd-message-close {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    margin-top: -8px;
+    width: 14px;
+    height: 14px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.wd-message-close:hover {
+    color: #444;
+}

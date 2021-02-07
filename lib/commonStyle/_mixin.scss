@@ -1,0 +1,65 @@
+@import "./variable";
+
+@mixin cls() {
+	//写成 :: 的形式 ie8 认不到
+	&:after {
+		content: ' ';
+		display: table;
+		height: 0;
+		clear: both;
+	}
+}
+
+@mixin bfc() {
+	overflow: hidden;
+}
+
+@mixin whpx($w, $h) {
+	width: $w + px;
+	height: $h + px;
+}
+
+@mixin tblr($t:0, $b:0, $l:0, $r:0) {
+	top: $t + px;
+	bottom: $b + px;
+	left: $l + px;
+	right: $r + px;
+}
+
+@mixin opacity($o) {
+	opacity: $o / 100;
+	filter:alpha(opacity=$o);
+}
+
+@mixin bg($num) {
+	background: rgba(0,0,0, $num / 100);
+	background: url($url-images + 'opacity/' + $num + '.png') repeat fixed center \9;
+}
+
+@mixin bg-white($num) {
+	background: rgba(255,255,255, $num / 100);
+	background: url($url-images + 'white/' + $num + '.png') repeat fixed center \9;
+}
+
+
+@mixin input-style($width, $padding-ver) {
+	border: 1px solid $light-3;
+	border-radius: 4px;
+	padding: $padding-ver + px 8px;
+	width: $width + px;
+	color: $dark-2;
+	font-size: $font-a;
+
+	//ie8 hack
+	padding: $padding-ver + px 0 \9;
+	width: $width + 16 + px \9;
+
+	&:focus,
+	&:hover {
+		border: 1px solid $color-a;
+	}
+
+	&:focus {
+		box-shadow: 0 0 8px 0 $color-al;
+	}
+}

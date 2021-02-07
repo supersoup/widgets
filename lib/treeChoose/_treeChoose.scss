@@ -1,0 +1,102 @@
+@import "../commonStyle/variable";
+@import "../commonStyle/mixin";
+
+$search-width: 226px;
+$search-height: 29px;
+
+.wd-tree-choose-wrap {
+	position: relative;
+	display: inline-block;
+
+	&:hover {
+		.wd-tree-choose-view {
+			border-color: $color-a;
+		}
+	}
+}
+
+.wd-tree-choose-wrap-open {
+	.wd-tree-choose-view {
+		border-color: $color-a;
+		box-shadow: 0 0 8px 0 $color-al;
+	}
+}
+
+.wd-tree-choose-view {
+	width: $search-width;
+	height: $search-height;
+	border: 1px solid $light-3;
+	border-radius: 4px;
+}
+
+.wd-tree-choose-view-button {
+	display: block;
+	overflow: hidden;
+	height: 100%;
+	line-height: $search-height;
+	text-decoration: none;
+	padding: 0 6px;
+	color: $dark-2;
+	text-overflow: ellipsis;
+	background: url($url-images + 'components/select/select-arrow.png') no-repeat right center;
+}
+
+.wd-tree-choose-pop {
+	position: absolute;
+	top: $search-height;
+	display: none;
+	border: 1px solid $color-a;
+	width: $search-width;
+	background: white;
+	z-index: 1;
+}
+
+.wd-tree-choose-input-wrap {
+	padding: 4px 0;
+	background: $color-al;
+}
+
+.wd-tree-choose-input {
+	display: block;
+	margin: auto;
+	border: none;
+	border-radius: 4px;
+	width: 92%;
+	padding: 4px 4px;
+	outline: none;
+}
+
+.wd-tree-choose-list {
+	list-style: none;
+	max-height: 200px;
+	overflow-y: auto;
+}
+
+.wd-tree-choose-footer {
+	border-top: 1px solid $color-a;
+}
+
+.wd-tree-choose-cancel,
+.wd-tree-choose-submit {
+	border: none;
+	padding: 0;
+	line-height: 30px;
+	font-size: 14px;
+	font-weight: 700;
+	color: $dark-2;
+}
+
+.wd-tree-choose-cancel {
+	background: $light-0;
+	width: 50%;
+}
+
+.wd-tree-choose-submit {
+	background: $color-a;
+	width: 50%;
+}
+
+.wd-tree-choose-search-target {
+	background: $color-c-l;
+}
+

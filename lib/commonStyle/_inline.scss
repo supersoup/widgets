@@ -1,0 +1,72 @@
+@import "./variable";
+@import "./mixin";
+
+input,
+textarea,
+select,
+button,
+a {
+	outline: none;
+}
+
+input[disabled] {
+	cursor: not-allowed;
+}
+
+.wd-input {
+	@include input-style(210, 5);
+}
+
+.wd-select {
+	@include input-style(210, 4);
+}
+
+.wd-input-short {
+	@include input-style(89, 5);
+}
+
+.wd-textarea {
+	@include input-style(210, 5);
+}
+
+.wd-button-primary,
+.wd-button {
+	display: inline-block;
+	border: 1px solid $color-a;
+	border-radius: 4px;
+	padding: 0 16px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	font-weight: 700;
+	color: $dark-2;
+
+	&:active {
+		box-shadow: 0 0 8px 0 $color-al;
+	}
+}
+
+.wd-button-primary {
+	background: $color-a;
+
+	&:active {
+		background: $color-ad;
+	}
+}
+
+.wd-button {
+	background: white;
+
+	&:active {
+		background: $color-al;
+	}
+}
+
+.wd-link {
+	color: $color-c;
+	cursor: pointer;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
