@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/supersoup/widgets/issues"
   },
-  "homepage": "https://github.com/supersoup/widgets#readme"
+  "homepage": "https://github.com/supersoup/widgets#readme",
+  "dependencies": {
+    "@types/jquery": "^1.10.36",
+    "@types/underscore": "^1.10.24"
+  }
 }

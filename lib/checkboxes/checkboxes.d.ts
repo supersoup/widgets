@@ -7,7 +7,7 @@ interface CheckboxesOptions {
     node: HTMLElement;
     hasAll: boolean;
     list: ListItem[];
-    onChange(list: string[]): void;
+    onChange?(list: string[]): void;
 }
 
 export = class Checkboxes {
