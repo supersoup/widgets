@@ -1,0 +1,19 @@
+{
+  "name": "widgets",
+  "version": "1.0.0",
+  "description": "```\r bower install ejs jquery#1.12.4 requirejs requirejs-text require-css mockjs\r ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/supersoup/widgets.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/supersoup/widgets/issues"
+  },
+  "homepage": "https://github.com/supersoup/widgets#readme"
+}
