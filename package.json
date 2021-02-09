@@ -1,8 +1,7 @@
 {
   "name": "widgets",
   "version": "1.0.0",
-  "description": "## 说明",
-  "main": "gulpfile.js",
+  "main": "index.js",
   "directories": {
     "example": "example",
     "lib": "lib"
@@ -16,6 +15,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gulp build"
+  "description": "```\r bower install ejs jquery#1.12.4 requirejs requirejs-text require-css mockjs\r ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -26,5 +29,9 @@
   "bugs": {
     "url": "https://github.com/supersoup/widgets/issues"
   },
-  "homepage": "https://github.com/supersoup/widgets#readme"
+  "homepage": "https://github.com/supersoup/widgets#readme",
+  "dependencies": {
+    "@types/jquery": "^1.10.36",
+    "@types/underscore": "^1.10.24"
+  }
 }

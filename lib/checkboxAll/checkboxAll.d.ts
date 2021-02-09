@@ -1,11 +1,7 @@
-interface OnChange {
-    (value: string[]): void;
-}
-
 interface CheckboxAllOptions {
     checkbox: HTMLInputElement;
     findClassName: string;
-    onChange: OnChange
+    onChange?(value: string[]): void
 }
 
 export = class CheckboxAll {
