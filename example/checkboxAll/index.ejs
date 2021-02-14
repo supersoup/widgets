@@ -1,0 +1,12 @@
+<%- include('../commonEjs/header.ejs', {name: 'checkboxAll'}) %>
+<div>
+    <label><span>水果</span><input type="checkbox" id="checkbox-group-1-all"></label>
+</div>
+<div id="checkbox-group-1-wrap">
+    <label><span>苹果</span><input type="checkbox" class="checkbox-group-1" value="a"></label>
+    <label><span>香蕉</span><input type="checkbox" class="checkbox-group-1" value="b"></label>
+    <label><span>梨子</span><input type="checkbox" class="checkbox-group-1" value="c"></label>
+</div>
+<div><button id="button1">获取值</button></div>
+<div><button id="button2">增加一个元素</button></div>
+<%- include('../commonEjs/footer.ejs') %>
