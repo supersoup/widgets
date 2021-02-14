@@ -41,8 +41,11 @@
 * treeChoose 树选框 
 * treeTable 树表
 
-## 用 bower 安装第三方库
+## 事例查看方式
+
+首先用 bower 安装依赖包:
 
 ```
-bower install ejs jquery#1.12.4 requirejs requirejs-text require-css mockjs
+bower install jquery#1.12.4 underscore requirejs requirejs-text mockjs
 ```
+
