@@ -1,11 +1,13 @@
 interface CheckboxAllOptions {
-    checkbox: HTMLInputElement;
+    checkbox: HTMLElement;
     findClassName: string;
     onChange?(value: string[]): void
 }
 
-export = class CheckboxAll {
+declare class CheckboxAll {
     constructor(options: CheckboxAllOptions);
     reset(): void;
     getValue(): string[];
 }
+
+export = CheckboxAll;
