@@ -20,3 +20,13 @@ body {
     border-bottom: 1px solid #DDDDDD;
     background: #FAFBFC;
 }
+
+.card {
+    margin: 16px;
+    border: 1px solid #dddddd;
+}
+
+.tab-item-current {
+    color: #cba62d;
+    border-bottom-color: #cba62d;
+}

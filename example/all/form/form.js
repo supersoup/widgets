@@ -5,13 +5,15 @@ define([
 	'./useDatePicker',
 	'./useSlider',
 	'./useCheckboxes',
+	'./useTransfer',
 ], function (
 	useNumber,
 	useSearch,
 	useTreeChoose,
 	useDatePicker,
 	useSlider,
-	useCheckboxes
+	useCheckboxes,
+	useTransfer,
 ) {
 	return function () {
 		useNumber();
@@ -20,5 +22,6 @@ define([
 		useDatePicker();
 		useSlider();
 		useCheckboxes();
+		useTransfer();
 	}
 });

@@ -13,7 +13,7 @@ define([
 			min: 60,
 			width: '220px',
 			renderTooltipText: function (value) {
-				return value + '%';
+				return value + '分';
 			}
 		});
 	}
