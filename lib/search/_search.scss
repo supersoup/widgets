@@ -39,7 +39,7 @@ $search-height: 29px;
 	padding: 0 6px;
 	color: $dark-2;
 	text-overflow: ellipsis;
-	background: url($url-images + 'components/select/select-arrow.png') no-repeat right center;
+	background: url($url-images + 'select/select-arrow.png') no-repeat right center;
 }
 
 .wd-search-view-clean {
@@ -49,10 +49,10 @@ $search-height: 29px;
 	display: none;
 	@include whpx(20,20);
 	cursor: pointer;
-	background: $light-0 url($url-images + 'components/select/close.png') no-repeat right center;
+	background: $light-0 url($url-images + 'select/close.png') no-repeat right center;
 
 	&:active {
-		background: $light-0 url($url-images + 'components/select/close-active.png') no-repeat right center;
+		background: $light-0 url($url-images + 'select/close-active.png') no-repeat right center;
 	}
 }
 

@@ -32,8 +32,8 @@ function buildScss() {
 		.pipe(dest('lib/commonStyle/'))
 }
 
-const devWatch = series(devEjs, devTypescript, function () {
-	watch(['example/*/index.ejs'], devEjs);
+const devWatch = series(devEjs, function () {
+	watch(['example/*/*.ejs'], devEjs);
 	watch(['example/*/index.ts'], devTypescript);
 });
 

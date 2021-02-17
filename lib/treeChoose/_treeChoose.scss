@@ -38,7 +38,7 @@ $search-height: 29px;
 	padding: 0 6px;
 	color: $dark-2;
 	text-overflow: ellipsis;
-	background: url($url-images + 'components/select/select-arrow.png') no-repeat right center;
+	background: url($url-images + 'select/select-arrow.png') no-repeat right center;
 }
 
 .wd-tree-choose-pop {
@@ -48,7 +48,7 @@ $search-height: 29px;
 	border: 1px solid $color-a;
 	width: $search-width;
 	background: white;
-	z-index: 1;
+	z-index: 3;
 }
 
 .wd-tree-choose-input-wrap {

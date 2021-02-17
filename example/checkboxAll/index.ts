@@ -16,7 +16,7 @@ const $wrap = $('#checkbox-group-1-wrap');
 let i = 3;
 const list = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'];
 
-$button1.click(() => {
+$button1.click(function () {
     console.log(all1.getValue());
 });
 

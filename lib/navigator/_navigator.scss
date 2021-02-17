@@ -51,10 +51,10 @@
 	@include whpx(14, 14);
 	text-align: center;
 	cursor: pointer;
-	background: transparent url($url-images + 'components/navigator/close.png') no-repeat center center;
+	background: transparent url($url-images + 'navigator/close.png') no-repeat center center;
 
 	&:active {
-		background: transparent url($url-images + 'components/navigator/close-active.png') no-repeat center center;
+		background: transparent url($url-images + 'navigator/close-active.png') no-repeat center center;
 	}
 }
 
@@ -68,19 +68,19 @@
 
 .wd-navigator-left {
 	left: 0;
-	background: url($url-images + 'components/navigator/chevron-left.png') no-repeat center center;
+	background: url($url-images + 'navigator/chevron-left.png') no-repeat center center;
 
 	&:active {
-		background: url($url-images + 'components/navigator/chevron-left-active.png') no-repeat center center;
+		background: url($url-images + 'navigator/chevron-left-active.png') no-repeat center center;
 	}
 }
 
 .wd-navigator-right {
 	right: 0;
-	background: url($url-images + 'components/navigator/chevron-right.png') no-repeat center center;
+	background: url($url-images + 'navigator/chevron-right.png') no-repeat center center;
 
 	&:active {
-		background: url($url-images + 'components/navigator/chevron-right-active.png') no-repeat center center;
+		background: url($url-images + 'navigator/chevron-right-active.png') no-repeat center center;
 	}
 }
 

@@ -48,7 +48,7 @@
 
 		.wd-table-head-text {
 			padding-right: 12px;
-			background: url($url-images + 'components/table/sort-null.png') no-repeat center right;
+			background: url($url-images + 'table/sort-null.png') no-repeat center right;
 		}
 	}
 
@@ -57,7 +57,7 @@
 		//color: white;
 
 		.wd-table-head-text {
-			background-image: url($url-images + 'components/table/sort-asc.png');
+			background-image: url($url-images + 'table/sort-asc.png');
 		}
 	}
 
@@ -66,7 +66,7 @@
 		//color: white;
 
 		.wd-table-head-text {
-			background-image: url($url-images + 'components/table/sort-desc.png');
+			background-image: url($url-images + 'table/sort-desc.png');
 		}
 	}
 }
@@ -117,7 +117,7 @@
 	border: 1px solid $light-3;
 	color: $light-4;
 	text-align: center;
-	background: $light-2 url($url-images + 'components/table/no-data.png') no-repeat center center;
+	background: $light-2 url($url-images + 'table/no-data.png') no-repeat center center;
 }
 
 .wd-table-wrap-no-data {

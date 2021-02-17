@@ -19,12 +19,12 @@
 }
 
 .wd-tree-item-toggle-open {
-	background: url(../../common/images/components/tree/down.png) no-repeat center center;
+	background: url($url-images + 'tree/down.png') no-repeat center center;
 	cursor: pointer;
 }
 
 .wd-tree-item-toggle-close {
-	background: url(../../common/images/components/tree/up.png) no-repeat center center;
+	background: url($url-images + 'tree/up.png')  no-repeat center center;
 	cursor: pointer;
 }
 

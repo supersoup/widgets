@@ -20,11 +20,11 @@
 	float: left;
 	margin: 6px 6px 0 0;
 	@include whpx(16, 16);
-	background: url($url-images + 'components/items/close.png') no-repeat center center;
+	background: url($url-images + 'items/close.png') no-repeat center center;
 	cursor: pointer;
 
 	&:active {
-		background: url($url-images + 'components/items/close-active.png') no-repeat center center;
+		background: url($url-images + 'items/close-active.png') no-repeat center center;
 	}
 }
 

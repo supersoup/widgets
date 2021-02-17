@@ -1,0 +1,4 @@
+interface MenuOptions {
+    storeKey: '',
+
+}

@@ -1,0 +1,22 @@
+html,
+body {
+    height: 100%;
+}
+
+#menu {
+    position: fixed;
+    width: 200px;
+    height: 100%;
+    background: #222222;
+    overflow-y: auto;
+}
+
+.project-content {
+    margin-left: 200px;
+}
+
+.top-bar {
+    padding-top: 10px;
+    border-bottom: 1px solid #DDDDDD;
+    background: #FAFBFC;
+}
