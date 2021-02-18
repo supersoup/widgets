@@ -1,11 +1,13 @@
 define([
 	'jquery',
 	'mock',
-	'table'
+	'table',
+	'pager'
 ], function (
 	$,
 	Mock,
-	Table
+	Table,
+	Pager
 ) {
 	return function () {
 
@@ -34,22 +36,7 @@ define([
 			},
 		];
 
-		var data = Mock.mock({
-			'array|10': [{
-				id: '@increment',
-				name: '@cname(2, 4)',
-				age: '@integer(18, 60)',
-				number: /[0-9]{18}/,
-				email: '@email',
-				ip: '@ip',
-				province: '@province',
-				create: '@datetime("yyyy-MM-dd A HH:mm:ss")',
-				update: '@datetime("yyyy-MM-dd A HH:mm:ss")',
-				submit: '@datetime("yyyy-MM-dd A HH:mm:ss")',
-				say: '@cparagraph(1)',
-				money: '@integer(1000, 100000)'
-			}]
-		});
+
 
 		var table = new Table({
 			node: $('#display-table').get(0),
@@ -57,9 +44,39 @@ define([
 			sortTypeList: ['desc', 'asc', ''],
 			hasColBorder: true,
 			columns: columns
-		})
+		});
 
-		table.setDataSource(data.array);
+		var pager = new Pager({
+			node: $('#display-page-1').get(0),
+			eachNumber: 10,
+			eachNumberChangeable: true,
+			goToPageable: true,
+			callback: function (page, eachNumber) {
+				var arrItem = [{
+					id: '@increment',
+					name: '@cname(2, 4)',
+					age: '@integer(18, 60)',
+					number: /[0-9]{18}/,
+					email: '@email',
+					ip: '@ip',
+					province: '@province',
+					create: '@datetime("yyyy-MM-dd HH:mm:ss")',
+					update: '@datetime("yyyy-MM-dd HH:mm:ss")',
+					submit: '@datetime("yyyy-MM-dd HH:mm:ss")',
+					say: '@cparagraph(1)',
+					money: '@integer(1000, 100000)'
+				}];
+				var mockObj = {};
+				mockObj['array|' + eachNumber] = arrItem;
+				var data = Mock.mock(mockObj);
+
+				table.setDataSource(data.array);
+			}
+		});
+		pager.setCount(400);
+		pager.setPage(1);
+
+
 
 	}
 });

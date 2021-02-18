@@ -3,13 +3,17 @@ define([
 	'mock',
 	'tabs',
 	'./useTable',
-	'./useTreeTable'
+	'./useTreeTable',
+	'./useTree',
+	'./useList'
 ], function (
 	$,
 	mock,
 	Tabs,
 	useTable,
 	useTreeTable,
+	useTree,
+	useList
 ) {
 	return function () {
 		var tabs = new Tabs({
@@ -27,6 +31,22 @@ define([
 				onEntry: function (isFirst) {
 					if (isFirst) {
 						useTreeTable();
+					}
+				}
+			}, {
+				tab: $('#tab3').get(0),
+				pane: $('#tabPane3').get(0),
+				onEntry: function (isFirst) {
+					if (isFirst) {
+						useTree();
+					}
+				}
+			}, {
+				tab: $('#tab4').get(0),
+				pane: $('#tabPane4').get(0),
+				onEntry: function (isFirst) {
+					if (isFirst) {
+						useList();
 					}
 				}
 			}],

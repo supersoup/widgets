@@ -30,3 +30,82 @@ body {
     color: #cba62d;
     border-bottom-color: #cba62d;
 }
+
+.display-head {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 16px 0;
+}
+
+.display-list-1-item {
+    margin: 8px 100px 8px 0;
+}
+
+.display-list-1-img {
+    float: left;
+    margin-top: 4px;
+    width: 70px;
+    height: 70px;
+    opacity: .3;
+}
+
+.display-list-1-content {
+    margin-left: 78px;
+}
+
+.display-list-1-info {
+    color: #999999;
+    font-size: 12px;
+    padding-bottom: 4px;
+}
+
+.display-list-1-text {
+    color: #666666;
+    font-size: 13px;
+}
+
+.display-list-2-item {
+    margin: 12px 0;
+    border-radius: 4px;
+    width: 340px;
+    padding: 8px 12px;
+    box-shadow: #eeeeee 0 0 2px 2px;
+}
+
+.display-list-2-title {
+    padding-bottom: 4px;
+}
+
+.display-list-2-table {
+    border-collapse: separate;
+    font-size: 13px;
+}
+
+.display-list-2-table td {
+    border: none;
+    padding-right: 16px;
+    text-align: left;
+}
+
+.display-list-2-table span {
+    color: #2BB764;
+}
+
+.display-list-2-table .display-list-2-red {
+    color: #b73f26;
+}
+
+.display-list-3-item {
+    margin: 12px 0;
+}
+
+.display-list-3-time {
+    margin-left: 20px;
+    font-size: 13px;
+    color: #999999;
+}
+
+#display-list-3 input,
+#display-list-3-all {
+    vertical-align: middle;
+}

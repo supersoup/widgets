@@ -1,0 +1,27 @@
+<li class="display-list-2-item">
+    <div class="display-list-2-title"><%= title %></div>
+    <table class="display-list-2-table">
+        <tr>
+            <td>近1月：<span class="<%= income1 > 0 ? 'display-list-2-red': '' %>">
+                <% if (income1 > 0) { %>+<% } %><%= income1 %>
+            </span></td>
+            <td>近3月：<span class="<%= income2 > 0 ? 'display-list-2-red': '' %>">
+                <% if (income2 > 0) { %>+<% } %><%= income2 %>
+            </span></td>
+            <td>近6月：<span class="<%= income3 > 0 ? 'display-list-2-red': '' %>">
+                <% if (income3 > 0) { %>+<% } %><%= income3 %>
+            </span></td>
+        </tr>
+        <tr>
+            <td>近1年：<span class="<%= income4 > 0 ? 'display-list-2-red': '' %>">
+                <% if (income4 > 0) { %>+<% } %><%= income4 %>
+            </span></td>
+            <td>近3年：<span class="<%= income5 > 0 ? 'display-list-2-red': '' %>">
+                <% if (income5 > 0) { %>+<% } %><%= income5 %>
+            </span></td>
+            <td>成立来：<span class="<%= income6 > 0 ? 'display-list-2-red': '' %>">
+                <% if (income6 > 0) { %>+<% } %><%= income6 %>
+            </span></td>
+        </tr>
+    </table>
+</li>
