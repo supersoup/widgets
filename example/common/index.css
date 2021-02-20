@@ -3,6 +3,10 @@ body {
     height: 100%;
 }
 
+html {
+    color: #444444;
+}
+
 #menu {
     position: fixed;
     width: 200px;
@@ -108,4 +112,13 @@ body {
 #display-list-3 input,
 #display-list-3-all {
     vertical-align: middle;
+}
+
+.manipulate-modal-row {
+    margin: 16px 0;
+}
+
+.manipulate-field-text {
+    float: left;
+    padding-top: 6px;
 }

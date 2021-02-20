@@ -1,11 +1,17 @@
 define([
 	'jquery',
 	'tree',
-	'../treeData'
+	'dialog',
+	'util/renderEjs',
+	'../treeData',
+	'text!./customTree.ejs'
 ], function (
 	$,
 	Tree,
-	treeData
+	dialog,
+	renderEjs,
+	treeData,
+	customTreeHTML
 ) {
 	return function () {
 		new Tree({
@@ -28,8 +34,10 @@ define([
 			type: 'checkbox'
 		});
 
-		new Tree({
-			node: $('#display-tree-4').get(0),
+		var $tree4 = $('#display-tree-4');
+
+		var tree4 = new Tree({
+			node: $tree4.get(0),
 			data: $.extend(true, [], treeData),
 			valueKey: 'id',
 			type: 'custom',
@@ -41,9 +49,32 @@ define([
 				};
 
 				//每个 item 都有一个 wdTreeKey，可以通过 tree.itemMap[wdTreeKey] 来获取 item 的信息
-				return '<a class="wd-link" data-map-key="' + item.wdTreeKey + '">' + map[level] + item.id + '-' + item.title + '</a>';
+				return renderEjs(customTreeHTML, {
+					item: item,
+					level: level,
+					map: map
+				});
 			}
 		});
+
+		$tree4.on('click', '.js-display-custom-tree-item', function (event) {
+			var $link = $(this);
+			var wdTreeKey = $link.attr('data-map-key');
+			var item = tree4.itemMap[wdTreeKey];
+
+			dialog.open({
+				node: this,
+				content: '<table class="wd-table" style="font-size: 13px;"><tr><th>人口（万）</th><td>' +
+					item.people +
+					'</td></tr><tr><th>GDP（亿元）</th><td>' +
+					item.gdp +
+					'</td></tr><tr><th>面积（平方公里）</th><td>' +
+					item.area +
+					'</td></tr></table>'
+			})
+		})
+
+
 
 	}
 });

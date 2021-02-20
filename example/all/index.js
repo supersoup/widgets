@@ -4,14 +4,17 @@ define([
 	'./init/init',
 	'./form/form',
 	'./display/display',
+	'./manipulate/manipulate',
 ], function (
 	$,
 	_,
 	init,
 	form,
-	display
+	display,
+	manipulate
 ) {
 	init();
 	form();
 	display();
+	manipulate();
 });
