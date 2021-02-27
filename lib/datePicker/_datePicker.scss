@@ -1,21 +1,52 @@
+@import "../commonStyle/variable";
+@import "../commonStyle/mixin";
+
 .date-wrap {
     width: 220px;
     position: absolute;
-    background: white;
+    background: $light-0;
+
+    th,
+    td {
+        border: 1px solid $color-a;
+        height: 26px;
+        line-height: 26px;
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    td {
+        cursor: pointer;
+    }
+
+    td:hover {
+        background: $color-a;
+    }
+
+    select {
+        font-size: 13px;
+        background: $dark-4;
+        color: $light-0;
+        vertical-align: middle;
+    }
 }
 
 .date-header {
     overflow: hidden;
     padding: 5px;
-    background: #a0bae8;
+    background: $color-a;
     text-align: center;
 }
 
 .date-header-previous,
 .date-header-next {
-    color: #4a608e;
+    color: $dark-2;
     font-weight: 700;
-    text-decoration: none;
+    vertical-align: middle;
+
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 .date-header-previous {
@@ -31,35 +62,19 @@
     border-collapse: collapse;
 }
 
-th,
-td {
-    border: 1px solid #a0bae8;
-    height: 26px;
-    line-height: 26px;
-    vertical-align: middle;
-    text-align: center;
-}
-
-td {
-    cursor: pointer;
-}
-
-td:hover {
-    background: #a0bae8;
-}
-
 .date-month-prev,
 .date-month-next {
-    background: #dee5f8;
+    background: $light-3;
 }
 
 .date-today {
-    color: #6982bc;
+    color: $color-a;
+    //background: $color-a;
     font-weight: 700;
 }
 
 .date-input-current {
-    background: #6982bc;
+    background: $color-a;
     color: white;
     font-weight: 700;
 }

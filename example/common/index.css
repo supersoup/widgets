@@ -4,6 +4,10 @@ body {
 }
 
 html {
+    overflow-y: auto;
+}
+
+html {
     color: #444444;
 }
 

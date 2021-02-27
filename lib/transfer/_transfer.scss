@@ -1,34 +1,36 @@
-.transfer {
+@import "../commonStyle/variable";
+@import "../commonStyle/mixin";
+
+.wd-transfer {
     overflow: hidden;
 }
 
-.transfer-left,
-.transfer-buttons,
-.transfer-right {
+.wd-transfer-left,
+.wd-transfer-buttons,
+.wd-transfer-right {
     float: left;
 }
 
-.transfer-left,
-.transfer-buttons {
+.wd-transfer-left,
+.wd-transfer-buttons {
     margin-right: 20px;
 }
 
-.transfer-button {
-    display: block;
+.wd-transfer-button {
+    //display: block;
     margin-top: 25px;
-    border: 1px solid #3f6091;
-    border-radius: 5px;
-    padding: 2px 6px;
-    color: #3f6091;
-    cursor: pointer;
+    //border: 1px solid $color-a;
+    //border-radius: 4px;
+    //padding: 2px 6px;
+    //color: $dark-0;
+    //cursor: pointer;
 }
 
-.transfer-button:hover {
-    background: #eeeeee;
-}
+.wd-transfer-list,
+.wd-transfer-value {
+    border: 1px solid $light-3;
+    border-radius: 4px;
+    padding: 4px 0;
+    @include whpx(180,150);
 
-.transfer-list,
-.transfer-value {
-    width: 180px;
-    height: 150px;
 }
