@@ -7,13 +7,7 @@
 
 ## 示例
 
-[http://tangchao.online/](http://tangchao.online/)
-
-目前处于备案阶段，可以访问：
-
-[http://8.136.13.184/](http://8.136.13.184/)
-
-
+[http://tangchao.online](http://tangchao.online)
 
 ## css 部件
 
