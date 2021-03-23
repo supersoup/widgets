@@ -1,15 +1,14 @@
 {
-  "name": "widgets",
+  "name": "@supersoup/widgets",
   "version": "1.0.0",
   "main": "index.js",
   "directories": {
     "example": "example",
     "lib": "lib"
   },
-  "dependencies": {
-    "express": "^4.17.1"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "express": "^4.17.1",
     "@types/jquery": "^1.10.36",
     "@types/underscore": "^1.10.24",
     "gulp": "^4.0.2",
@@ -29,10 +28,10 @@
     "type": "git",
     "url": "git+https://github.com/supersoup/widgets.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "tangchao",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/supersoup/widgets/issues"
   },
-  "homepage": "https://github.com/supersoup/widgets#readme"
+  "homepage": "https://tangchao.online"
 }
